@@ -7,8 +7,8 @@ public class CreateOrderResponseMapper {
     public static CreateOrderResponse from(Order order) {
         return CreateOrderResponse.builder()
                 .orderTotal(order.getOrderTotal())
-                .deliveryAddress(order.getDeliveryAddress())
-                .number(order.getNumber())
+                .deliveryAddress(order.getDeliveryAddress())//pasar a un string
+                .orderId(order.getOrderId())
                 .orderTotal(order.getOrderTotal())
                 .build();
     }

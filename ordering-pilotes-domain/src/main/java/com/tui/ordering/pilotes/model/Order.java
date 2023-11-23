@@ -1,25 +1,28 @@
 package com.tui.ordering.pilotes.model;
 
-import com.tui.ordering.pilotes.port.in.model.OrderAddress;
+
 
 public class Order {
-    private final String userIdentier;
-    private final OrderAddress deliveryAddress;
+
+    private final String orderId;
+    private final String userIdentifier;
+    private final Address deliveryAddress;
     private final int pilotes;
     private final double orderTotal;
 
     private Order(Builder builder) {
-        this.userIdentier = builder.userIdentifier;
+        this.orderId = builder.orderId;
+        this.userIdentifier = builder.userIdentifier;
         this.orderTotal = builder.orderTotal;
         this.pilotes = builder.pilotes;
         this.deliveryAddress = builder.deliveryAddress;
     }
 
     public String getUserIdentier() {
-        return userIdentier;
+        return userIdentifier;
     }
 
-    public OrderAddress getDeliveryAddress() {
+    public Address getDeliveryAddress() {
         return deliveryAddress;
     }
 
@@ -31,10 +34,14 @@ public class Order {
         return orderTotal;
     }
 
+    public String getOrderId() {
+        return orderId;
+    }
 
     public static final class Builder {
+        private String orderId;
         private String userIdentifier;
-        private OrderAddress deliveryAddress;
+        private Address deliveryAddress;
         private int pilotes;
         private double orderTotal;
 
@@ -45,12 +52,17 @@ public class Order {
             return new Builder();
         }
 
+        public Builder orderId(String orderId) {
+            this.orderId = orderId;
+            return this;
+        }
+
         public Builder userIdentifier(String userIdentifier) {
             this.userIdentifier = userIdentifier;
             return this;
         }
 
-        public Builder deliveryAddress(OrderAddress deliveryAddress) {
+        public Builder deliveryAddress(Address deliveryAddress) {
             this.deliveryAddress = deliveryAddress;
             return this;
         }

@@ -1,17 +1,23 @@
 package com.tui.ordering.pilotes.model;
 
-public class OrderAddress {
+public class Address {
 
+    private final String addressId;
     private final String street;
     private final String postcode;
     private final String city;
     private final String country;
 
-    private OrderAddress(Builder builder) {
+    private Address(Builder builder) {
+        this.addressId = builder.addressId;
         this.street = builder.street;
         this.postcode = builder.postcode;
         this.city = builder.city;
         this.country = builder.country;
+    }
+
+    public String getAddressId() {
+        return addressId;
     }
 
     public String getStreet() {
@@ -32,6 +38,8 @@ public class OrderAddress {
 
 
     public static final class Builder {
+
+        private String addressId;
         private String street;
         private String postcode;
         private String city;
@@ -42,6 +50,11 @@ public class OrderAddress {
 
         public static Builder builder() {
             return new Builder();
+        }
+
+        public Builder addressId(String addressId) {
+            this.addressId = addressId;
+            return this;
         }
 
         public Builder street(String street) {
@@ -64,8 +77,8 @@ public class OrderAddress {
             return this;
         }
 
-        public OrderAddress build() {
-            return new OrderAddress(this);
+        public Address build() {
+            return new Address(this);
         }
     }
 }

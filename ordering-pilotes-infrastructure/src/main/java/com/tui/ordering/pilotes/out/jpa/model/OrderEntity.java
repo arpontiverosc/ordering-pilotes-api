@@ -1,14 +1,12 @@
 package com.tui.ordering.pilotes.out.jpa.model;
 
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
-@Entity(name="orders")
+@Entity(name = "orders")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -16,34 +14,22 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 public class OrderEntity {
+
     @Id
-
     @EqualsAndHashCode.Include
-    private Long id;
+    private String orderId;
 
-    @Column(name="brand_id")
-    private Long brandId;
+    @Column(name = "user_id")
+    private String userIdentifier;
 
-    @Column(name="start_date")
-    private LocalDateTime startDate;
+    @Column(name = "delivery_address")
+    private AddressEntity deliveryAddress;
 
-    @Column(name="end_date")
-    private LocalDateTime endDate;
+    @Column(name = "pilotes")
+    private int pilotes;
 
-    @Column(name="price_list")
-    private Long priceList;
-
-    @Column(name="product_id")
-    private Long productId;
-
-    @Column(name="price")
-    private BigDecimal price;
-
-    @Column(name="curr")
-    private String curr;
-
-    @Column(name="priority")
-    private Long priority;
+    @Column(name = "orderTotal")
+    private double orderTotal;
 
 
 }

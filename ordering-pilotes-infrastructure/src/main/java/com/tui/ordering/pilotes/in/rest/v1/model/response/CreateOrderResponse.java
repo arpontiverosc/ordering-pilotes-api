@@ -10,7 +10,8 @@ import lombok.*;
 @Builder
 public class CreateOrderResponse {
 
-    private final String number;
+
+    private final String orderId;
     private final String deliveryAddress;
     private final int pilotes;
     private final double orderTotal;
