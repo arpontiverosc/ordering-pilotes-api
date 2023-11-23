@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class xOrderController implements OrderPilotesApi {
+public class OrderController implements OrderPilotesApi {
 
     private final CreateOrderUseCase createOrderUseCase;
 
