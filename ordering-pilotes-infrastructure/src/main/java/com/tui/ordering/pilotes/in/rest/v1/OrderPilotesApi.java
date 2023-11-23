@@ -15,6 +15,6 @@ public interface OrderPilotesApi {
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseStatus(HttpStatus.CREATED)
-  CreateOrderResponse createCustomerV1(@Valid @RequestBody CreateOrderRequest request);
+  CreateOrderResponse createOrderV1(@Valid @RequestBody CreateOrderRequest request);
 
 }

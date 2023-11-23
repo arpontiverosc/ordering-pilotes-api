@@ -16,7 +16,7 @@ public class OrderController implements OrderPilotesApi {
     private final CreateOrderUseCase createOrderUseCase;
 
     @Override
-    public CreateOrderResponse createCustomerV1(CreateOrderRequest request) {
+    public CreateOrderResponse createOrderV1(CreateOrderRequest request) {
         return CreateOrderResponseMapper.from(createOrderUseCase.execute(CreateOrderCommandMapper.from(request)));
     }
 }
