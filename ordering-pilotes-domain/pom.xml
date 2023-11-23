@@ -11,4 +11,11 @@
 
     <artifactId>ordering-pilotes-domain</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.tui.ordering.pilotes</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
