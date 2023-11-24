@@ -7,14 +7,14 @@ public class Order {
     private final String orderId;
     private final String userIdentifier;
     private final Address deliveryAddress;
-    private final int pilotes;
+    private final int pilotesNumber;
     private final double orderTotal;
 
     private Order(Builder builder) {
         this.orderId = builder.orderId;
         this.userIdentifier = builder.userIdentifier;
         this.orderTotal = builder.orderTotal;
-        this.pilotes = builder.pilotes;
+        this.pilotesNumber = builder.pilotesNumber;
         this.deliveryAddress = builder.deliveryAddress;
     }
 
@@ -26,8 +26,8 @@ public class Order {
         return deliveryAddress;
     }
 
-    public int getPilotes() {
-        return pilotes;
+    public int getPilotesNumber() {
+        return pilotesNumber;
     }
 
     public double getOrderTotal() {
@@ -42,7 +42,7 @@ public class Order {
         private String orderId;
         private String userIdentifier;
         private Address deliveryAddress;
-        private int pilotes;
+        private int pilotesNumber;
         private double orderTotal;
 
         private Builder() {
@@ -68,7 +68,7 @@ public class Order {
         }
 
         public Builder pilotes(int pilotes) {
-            this.pilotes = pilotes;
+            this.pilotesNumber = pilotes;
             return this;
         }
 

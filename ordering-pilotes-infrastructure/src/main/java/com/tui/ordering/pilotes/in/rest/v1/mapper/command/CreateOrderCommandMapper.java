@@ -17,7 +17,7 @@ public class CreateOrderCommandMapper {
                                 .street(request.getDeliveryAddress().getStreet())
                                 .country(request.getDeliveryAddress().getCountry())
                                 .build())
-                .pilotes(request.getPilotes())
+                .pilotes(request.getPilotesNumber())
                 .build();
     }
 

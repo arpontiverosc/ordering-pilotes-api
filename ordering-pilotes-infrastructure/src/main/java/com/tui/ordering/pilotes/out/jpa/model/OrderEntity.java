@@ -24,8 +24,8 @@ public class OrderEntity {
     @JoinColumn(name = "deliveryAddress_id", referencedColumnName = "id", nullable = false)
     private AddressEntity deliveryAddress;
 
-    @Column(name = "pilotes")
-    private int pilotes;
+    @Column(name = "pilotes_number")
+    private int pilotesNumber;
 
     @Column(name = "orderTotal")
     private double orderTotal;

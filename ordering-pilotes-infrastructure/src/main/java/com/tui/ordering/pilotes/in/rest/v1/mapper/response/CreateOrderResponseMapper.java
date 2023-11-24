@@ -10,7 +10,9 @@ public class CreateOrderResponseMapper {
         return CreateOrderResponse.builder()
                 .orderTotal(order.getOrderTotal())
                 .deliveryAddress(order.getDeliveryAddress().toString())
-                .orderId(order.getOrderId()).orderTotal(order.getOrderTotal()).build();
+                .orderId(order.getOrderId()).orderTotal(order.getOrderTotal())
+                .pilotesNumber(order.getPilotesNumber())
+                .build();
     }
 
 }

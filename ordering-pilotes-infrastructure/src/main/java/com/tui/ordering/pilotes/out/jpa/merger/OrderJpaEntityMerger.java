@@ -5,6 +5,8 @@ import com.tui.ordering.pilotes.model.Order;
 import com.tui.ordering.pilotes.out.jpa.model.AddressEntity;
 import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
 
+import java.util.Objects;
+
 public class OrderJpaEntityMerger {
 
     private static void from(Address deliveryAddress, AddressEntity addressToSave) {
@@ -12,6 +14,7 @@ public class OrderJpaEntityMerger {
         addressToSave.setCity(deliveryAddress.getCity());
         addressToSave.setStreet(deliveryAddress.getStreet());
         addressToSave.setPostcode(deliveryAddress.getPostcode());
+        addressToSave.setCountry(deliveryAddress.getCountry());
     }
 
     public static void from(Order order, OrderEntity orderToSave) {
@@ -19,10 +22,13 @@ public class OrderJpaEntityMerger {
         orderToSave.setUserIdentifier(order.getUserIdentier());
 
         AddressEntity addressEntity = orderToSave.getDeliveryAddress();
+        if(Objects.isNull(addressEntity)){
+            addressEntity = new AddressEntity();
+        }
         from(order.getDeliveryAddress(), addressEntity);
         orderToSave.setDeliveryAddress(addressEntity);
 
-        orderToSave.setPilotes(order.getPilotes());
+        orderToSave.setPilotesNumber(order.getPilotesNumber());
         orderToSave.setOrderTotal(order.getOrderTotal());
     }
 }

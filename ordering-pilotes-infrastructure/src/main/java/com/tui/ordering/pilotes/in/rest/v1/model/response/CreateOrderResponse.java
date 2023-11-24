@@ -13,7 +13,7 @@ public class CreateOrderResponse {
 
     private final String orderId;
     private final String deliveryAddress;
-    private final int pilotes;
+    private final int pilotesNumber;
     private final double orderTotal;
 
 }
