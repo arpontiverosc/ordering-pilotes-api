@@ -12,6 +12,7 @@ public class CreateOrderResponseMapper {
                 .deliveryAddress(order.getDeliveryAddress().toString())
                 .orderId(order.getOrderId()).orderTotal(order.getOrderTotal())
                 .pilotesNumber(order.getPilotesNumber())
+                .createdAt(order.getCreatedAt())
                 .build();
     }
 

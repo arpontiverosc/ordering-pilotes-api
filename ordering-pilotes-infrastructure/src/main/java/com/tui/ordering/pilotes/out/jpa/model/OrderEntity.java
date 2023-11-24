@@ -4,6 +4,8 @@ package com.tui.ordering.pilotes.out.jpa.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.OffsetDateTime;
+
 @Entity(name = "orders")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,8 +29,10 @@ public class OrderEntity {
     @Column(name = "pilotes_number")
     private int pilotesNumber;
 
-    @Column(name = "orderTotal")
+    @Column(name = "order_total")
     private double orderTotal;
 
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
 }

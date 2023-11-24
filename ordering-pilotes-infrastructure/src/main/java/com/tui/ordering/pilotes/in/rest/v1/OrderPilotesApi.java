@@ -1,6 +1,7 @@
 package com.tui.ordering.pilotes.in.rest.v1;
 
 import com.tui.ordering.pilotes.in.rest.v1.model.request.CreateOrderRequest;
+import com.tui.ordering.pilotes.in.rest.v1.model.request.UpdateOrderRequest;
 import com.tui.ordering.pilotes.in.rest.v1.model.response.CreateOrderResponse;
 import com.tui.ordering.pilotes.in.rest.v1.model.response.DetailOrderResponse;
 import jakarta.validation.Valid;
@@ -22,5 +23,13 @@ public interface OrderPilotesApi {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     List<DetailOrderResponse> searchOrdersV1(@RequestParam(value = "search") String search);
+
+
+    @PutMapping(path = "/{orderId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void updateOrderV1(
+            @PathVariable("orderId") String orderId,
+            @Valid @RequestBody UpdateOrderRequest request);
+
 
 }

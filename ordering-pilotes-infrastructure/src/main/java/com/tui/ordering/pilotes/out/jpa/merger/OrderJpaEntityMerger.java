@@ -5,6 +5,7 @@ import com.tui.ordering.pilotes.model.Order;
 import com.tui.ordering.pilotes.out.jpa.model.AddressEntity;
 import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 public class OrderJpaEntityMerger {
@@ -18,6 +19,9 @@ public class OrderJpaEntityMerger {
     }
 
     public static void from(Order order, OrderEntity orderToSave) {
+        if(Objects.isNull(orderToSave.getCreatedAt())){
+            orderToSave.setCreatedAt(OffsetDateTime.now());
+        }
         orderToSave.setOrderId(order.getOrderId());
         orderToSave.setUserIdentifier(order.getUserIdentier());
 

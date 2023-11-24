@@ -22,6 +22,9 @@ public class JpaSearchOrdersRepositoryImpl implements SearchOrdersRepository {
 
     @Override
     public List<Order> searchBy(String searchQuery) {
+
+
+    //    ojo JpaOrderRepositoryImpl
 /*
         OrderSpecificationsBuilder UserSpecificationsBuilder = new OrderSpecificationsBuilder();
         OrderSpecificationsBuilder builder = new OrderSpecificationsBuilder();

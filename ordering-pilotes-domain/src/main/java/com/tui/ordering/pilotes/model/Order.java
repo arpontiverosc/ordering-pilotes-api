@@ -1,6 +1,7 @@
 package com.tui.ordering.pilotes.model;
 
 
+import java.time.OffsetDateTime;
 
 public class Order {
 
@@ -9,6 +10,7 @@ public class Order {
     private final Address deliveryAddress;
     private final int pilotesNumber;
     private final double orderTotal;
+    private final OffsetDateTime createdAt;
 
     private Order(Builder builder) {
         this.orderId = builder.orderId;
@@ -16,6 +18,7 @@ public class Order {
         this.orderTotal = builder.orderTotal;
         this.pilotesNumber = builder.pilotesNumber;
         this.deliveryAddress = builder.deliveryAddress;
+        this.createdAt = builder.createdAt;
     }
 
     public String getUserIdentier() {
@@ -38,12 +41,21 @@ public class Order {
         return orderId;
     }
 
+    public String getUserIdentifier() {
+        return userIdentifier;
+    }
+
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public static final class Builder {
         private String orderId;
         private String userIdentifier;
         private Address deliveryAddress;
         private int pilotesNumber;
         private double orderTotal;
+        private OffsetDateTime createdAt;
 
         private Builder() {
         }
@@ -74,6 +86,11 @@ public class Order {
 
         public Builder orderTotal(double orderTotal) {
             this.orderTotal = orderTotal;
+            return this;
+        }
+
+        public Builder createdAt(OffsetDateTime createdAt){
+            this.createdAt =  createdAt;
             return this;
         }
 

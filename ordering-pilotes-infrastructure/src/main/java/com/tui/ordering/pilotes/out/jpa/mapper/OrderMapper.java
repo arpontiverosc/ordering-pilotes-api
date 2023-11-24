@@ -16,6 +16,7 @@ public class OrderMapper {
                 .orderTotal(orderEntity.getOrderTotal())
                 .userIdentifier(orderEntity.getUserIdentifier())
                 .deliveryAddress(AddressMapper.from(orderEntity.getDeliveryAddress()))
+                .createdAt(orderEntity.getCreatedAt())
                 .build();
     }
 
