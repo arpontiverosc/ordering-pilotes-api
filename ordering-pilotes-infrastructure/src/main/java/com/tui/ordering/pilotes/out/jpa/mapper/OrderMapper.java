@@ -10,7 +10,14 @@ import lombok.NoArgsConstructor;
 public class OrderMapper {
 
     public static Order from(OrderEntity orderEntity) {
-
+        return Order.Builder.builder()
+                .orderId(orderEntity.getOrderId())
+                .pilotes(orderEntity.getPilotes())
+                .orderTotal(orderEntity.getOrderTotal())
+                .userIdentifier(orderEntity.getUserIdentifier())
+                .deliveryAddress(AddressMapper.from(orderEntity.getDeliveryAddress()))
+                .build();
     }
+
 
 }

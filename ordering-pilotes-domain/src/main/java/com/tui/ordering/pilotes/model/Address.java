@@ -36,6 +36,10 @@ public class Address {
         return country;
     }
 
+    @Override
+    public String toString() {
+        return addressId + '\'' + ", " + street + '\'' + ", " + postcode + '\'' + ", " + city + '\'' + ", " + country + '\'';
+    }
 
     public static final class Builder {
 

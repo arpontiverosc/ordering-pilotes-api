@@ -19,6 +19,8 @@ public class AddressEntity {
     @EqualsAndHashCode.Include
     private String id;
 
+    private String orderId;
+
     @Column(name = "street")
     private String street;
 

@@ -1,9 +1,7 @@
 package com.tui.ordering.pilotes.out.jpa.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity(name = "orders")
@@ -22,7 +20,8 @@ public class OrderEntity {
     @Column(name = "user_id")
     private String userIdentifier;
 
-    @Column(name = "delivery_address")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "deliveryAddress_id", referencedColumnName = "id", nullable = false)
     private AddressEntity deliveryAddress;
 
     @Column(name = "pilotes")

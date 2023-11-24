@@ -30,6 +30,14 @@
             <groupId>com.tui.ordering.pilotes</groupId>
             <artifactId>ordering-pilotes-domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.tui.ordering.pilotes</groupId>
+            <artifactId>ordering-pilotes-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tui.ordering.pilotes</groupId>
+            <artifactId>ordering-pilotes-use-case</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

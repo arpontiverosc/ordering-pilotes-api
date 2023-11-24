@@ -1,6 +1,7 @@
 package com.tui.ordering.pilotes;
 
 
+import com.tui.ordering.pilotes.port.out.FindClientRepository;
 import com.tui.ordering.pilotes.port.out.FindOrderPiloteValuesRepository;
 import com.tui.ordering.pilotes.port.out.FindPilotePriceRepository;
 import com.tui.ordering.pilotes.service.ClientService;
@@ -12,15 +13,13 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
     @Bean
-    public PilotesService pilotesService(FindOrderPiloteValuesRepository findOrderPiloteValuesRepository,
-                                                    FindPilotePriceRepository findPilotePriceRepository) {
+    public PilotesService pilotesService(FindOrderPiloteValuesRepository findOrderPiloteValuesRepository, FindPilotePriceRepository findPilotePriceRepository) {
         return new PilotesService(findOrderPiloteValuesRepository, findPilotePriceRepository);
     }
 
     @Bean
-    public ClientService  clientService(){
-        return new ClientService();
-
+    public ClientService clientService(FindClientRepository findClientRepository) {
+        return new ClientService(findClientRepository);
     }
 
 }
