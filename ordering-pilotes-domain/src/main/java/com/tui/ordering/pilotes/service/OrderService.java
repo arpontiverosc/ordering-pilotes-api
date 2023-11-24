@@ -15,7 +15,7 @@ public class OrderService {
 
     public void isBefore(int minutes, String orderId) {
         Order order = findById(orderId);
-        if (order.getCreatedAt().isBefore(order.getCreatedAt().plusMinutes(minutes))) {
+        if (order.getCreatedAt().isAfter(order.getCreatedAt().plusMinutes(minutes))) {
             throw new OrderBeingCookingException();
         }
     }

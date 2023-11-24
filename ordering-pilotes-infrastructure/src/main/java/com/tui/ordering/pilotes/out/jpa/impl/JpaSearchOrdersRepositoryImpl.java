@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 
 @Repository
 @RequiredArgsConstructor
-public class JpaSearchOrdersRepositoryImpl implements SearchOrdersRepository {
+public class JpaSearchOrdersRepositoryImpl  {
 
 
 
 
-    @Override
+
     public List<Order> searchBy(String searchQuery) {
 
 
