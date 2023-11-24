@@ -30,7 +30,6 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
     }
 
     private void validateCommand(CreateOrderCommand command) {
-        //choosing between 5, 10 or 15 pilotes
         pilotesService.validNumber(command.getPilotesNumber());
         clientService.retrieveClient(command.getUserIdentifier());
     }
