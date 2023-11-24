@@ -11,7 +11,9 @@ import java.util.Objects;
 public class OrderJpaEntityMerger {
 
     private static void from(Address deliveryAddress, AddressEntity addressToSave) {
-        addressToSave.setId(deliveryAddress.getAddressId());
+        if(!Objects.isNull(deliveryAddress.getAddressId())) {
+            addressToSave.setId(deliveryAddress.getAddressId());
+        }
         addressToSave.setCity(deliveryAddress.getCity());
         addressToSave.setStreet(deliveryAddress.getStreet());
         addressToSave.setPostcode(deliveryAddress.getPostcode());

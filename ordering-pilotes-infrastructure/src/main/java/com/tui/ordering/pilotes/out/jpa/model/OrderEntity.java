@@ -19,8 +19,9 @@ public class OrderEntity {
     @EqualsAndHashCode.Include
     private String orderId;
 
-    @Column(name = "user_id")
-    private String userIdentifier;
+    @ManyToOne
+    to-do
+    private ClientEntity client;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "deliveryAddress_id", referencedColumnName = "id", nullable = false)

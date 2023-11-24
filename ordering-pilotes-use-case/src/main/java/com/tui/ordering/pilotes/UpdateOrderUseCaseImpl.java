@@ -42,9 +42,8 @@ public class UpdateOrderUseCaseImpl implements UpdateOrderUseCase {
 
     private Order createOrderFromCommand(UpdateOrderCommand command) {
         return Order.Builder.builder()
-                .orderId(UUID.randomUUID().toString())
+                .orderId(command.getOrderId())
                 .deliveryAddress(Address.Builder.builder()
-                        .addressId(UUID.randomUUID().toString())
                         .postcode(command.getDeliveryAddress().getPostcode())
                         .city(command.getDeliveryAddress().getCity())
                         .street(command.getDeliveryAddress().getStreet())

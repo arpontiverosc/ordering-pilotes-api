@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "8ae285bc-9db6-4c86-be27-aef245105d46",
+		"name": "Ordering pilotes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28815477"
+	},
+	"item": [
+		{
+			"name": "New order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"response code is 201\"] = responseCode.code === 201;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New order client not found",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New order wrong pilotes number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"response code is 422\"] = responseCode.code === 422;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"response code is 204\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders/472bd97a-e744-4f40-9b14-159dc1881591",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders",
+						"472bd97a-e744-4f40-9b14-159dc1881591"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"response code is 204\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders/01f0db60-7d48-42a0-81f3-6fc9edbb8d0d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders",
+						"01f0db60-7d48-42a0-81f3-6fc9edbb8d0d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update order after 5 minutes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"response code is 422\"] = responseCode.code === 422;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
