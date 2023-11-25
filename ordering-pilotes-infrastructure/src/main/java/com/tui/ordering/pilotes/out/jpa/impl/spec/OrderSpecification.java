@@ -1,7 +1,9 @@
 package com.tui.ordering.pilotes.out.jpa.impl.spec;
 
+import com.tui.ordering.pilotes.out.jpa.model.CustomerEntity;
 import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
 import com.tui.ordering.pilotes.port.in.model.SearchOrderQuery;
+import jakarta.persistence.criteria.Join;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
@@ -39,22 +41,36 @@ public class OrderSpecification {
         if (customerId == null) {
             return null;
         }
-        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerId"), customerId);
+        return (root, query, criteriaBuilder) -> {
+            Join<CustomerEntity, OrderEntity> joinCustomer = root.join("customer");
+            return criteriaBuilder.equal(joinCustomer.get("id"), customerId);
+        };
     }
-
 
     public static Specification<OrderEntity> byCustomerFirstNameEqual(String customerFirstName) {
         if (customerFirstName == null) {
             return null;
         }
-        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerFirstName"), customerFirstName);
+        return (root, query, criteriaBuilder) -> {
+            Join<CustomerEntity, OrderEntity> joinCustomer = root.join("customer");
+            return criteriaBuilder.like(
+                    criteriaBuilder.lower(joinCustomer.get("firstName")),
+                    "%" + customerFirstName.toLowerCase() + "%"
+            );
+        };
     }
 
     public static Specification<OrderEntity> byCustomerLastNameEqual(String customerLastName) {
         if (customerLastName == null) {
             return null;
         }
-        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerLastName"), customerLastName);
+        return (root, query, criteriaBuilder) -> {
+            Join<CustomerEntity, OrderEntity> joinCustomer = root.join("customer");
+            return criteriaBuilder.like(
+                    criteriaBuilder.lower(joinCustomer.get("lastName")),
+                    "%" + customerLastName.toLowerCase() + "%"
+            );
+        };
     }
 
 
