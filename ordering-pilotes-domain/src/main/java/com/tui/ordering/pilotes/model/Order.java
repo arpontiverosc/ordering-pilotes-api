@@ -4,9 +4,8 @@ package com.tui.ordering.pilotes.model;
 import java.time.OffsetDateTime;
 
 public class Order {
-
     private final String orderId;
-    private final String userIdentifier;
+    private final Customer customer;
     private final Address deliveryAddress;
     private final int pilotesNumber;
     private final double orderTotal;
@@ -14,16 +13,13 @@ public class Order {
 
     private Order(Builder builder) {
         this.orderId = builder.orderId;
-        this.userIdentifier = builder.userIdentifier;
+        this.customer = builder.customer;
         this.orderTotal = builder.orderTotal;
         this.pilotesNumber = builder.pilotesNumber;
         this.deliveryAddress = builder.deliveryAddress;
         this.createdAt = builder.createdAt;
     }
 
-    public String getUserIdentier() {
-        return userIdentifier;
-    }
 
     public Address getDeliveryAddress() {
         return deliveryAddress;
@@ -41,8 +37,8 @@ public class Order {
         return orderId;
     }
 
-    public String getUserIdentifier() {
-        return userIdentifier;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public OffsetDateTime getCreatedAt() {
@@ -51,7 +47,7 @@ public class Order {
 
     public static final class Builder {
         private String orderId;
-        private String userIdentifier;
+        private Customer customer;
         private Address deliveryAddress;
         private int pilotesNumber;
         private double orderTotal;
@@ -69,8 +65,8 @@ public class Order {
             return this;
         }
 
-        public Builder userIdentifier(String userIdentifier) {
-            this.userIdentifier = userIdentifier;
+        public Builder customer(Customer customer) {
+            this.customer = customer;
             return this;
         }
 
@@ -89,8 +85,8 @@ public class Order {
             return this;
         }
 
-        public Builder createdAt(OffsetDateTime createdAt){
-            this.createdAt =  createdAt;
+        public Builder createdAt(OffsetDateTime createdAt) {
+            this.createdAt = createdAt;
             return this;
         }
 

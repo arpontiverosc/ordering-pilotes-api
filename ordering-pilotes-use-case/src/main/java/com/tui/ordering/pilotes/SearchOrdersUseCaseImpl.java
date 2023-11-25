@@ -2,6 +2,7 @@ package com.tui.ordering.pilotes;
 
 import com.tui.ordering.pilotes.model.Order;
 import com.tui.ordering.pilotes.port.in.SearchOrdersUseCase;
+import com.tui.ordering.pilotes.port.in.model.SearchOrderQuery;
 import com.tui.ordering.pilotes.port.out.SaveOrderRepository;
 import com.tui.ordering.pilotes.port.out.SearchOrdersRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class SearchOrdersUseCaseImpl implements SearchOrdersUseCase {
     private final SearchOrdersRepository searchOrdersRepository;
     @Transactional(readOnly = true)
     @Override
-    public List<Order> execute(String searchQuery) {
-        return searchOrdersRepository.searchBy(searchQuery);
+    public List<Order> execute(SearchOrderQuery query) {
+        return searchOrdersRepository.searchBy(query);
     }
 }

@@ -1,7 +1,7 @@
 package com.tui.ordering.pilotes.service;
 
 import com.tui.ordering.pilotes.exception.ClienteNotFoundException;
-import com.tui.ordering.pilotes.model.Client;
+import com.tui.ordering.pilotes.model.Customer;
 import com.tui.ordering.pilotes.port.out.FindClientRepository;
 
 public class ClientService {
@@ -11,7 +11,7 @@ public class ClientService {
         this.findClientRepository = findClientRepository;
     }
 
-    public Client retrieveClient(String userIdentifier) {
+    public Customer retrieveClient(String userIdentifier) {
         return findClientRepository.findById(userIdentifier).orElseThrow(ClienteNotFoundException::new);
     }
 }

@@ -25,7 +25,6 @@ public class OrderJpaEntityMerger {
             orderToSave.setCreatedAt(OffsetDateTime.now());
         }
         orderToSave.setOrderId(order.getOrderId());
-        orderToSave.setUserIdentifier(order.getUserIdentier());
 
         AddressEntity addressEntity = orderToSave.getDeliveryAddress();
         if(Objects.isNull(addressEntity)){

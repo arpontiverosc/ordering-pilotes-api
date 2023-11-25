@@ -1,47 +1,76 @@
 package com.tui.ordering.pilotes.out.jpa.impl.spec;
 
 import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
+import com.tui.ordering.pilotes.port.in.model.SearchOrderQuery;
 import org.springframework.data.jpa.domain.Specification;
 
-public class OrderSpecification implements Specification<OrderEntity> {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
-
-    private SpecSearchCriteria criteria;
-
-    public OrderSpecification(final SpecSearchCriteria criteria) {
-        super();
-        this.criteria = criteria;
+public class OrderSpecification {
+    public static Optional<Specification<OrderEntity>> where(SearchOrderQuery query) {
+        List<Specification<OrderEntity>> specifications = new ArrayList<>();
+        specifications.add(byOrderIdEqual(query.getOrderId()));
+        specifications.add(byPilotesNumberEqual(query.getPilotesNumber()));
+        specifications.add(byCustomerIdEqual(query.getCustomerId()));
+        specifications.add(byCustomerFirstNameEqual(query.getCustomerFirstName()));
+        specifications.add(byCustomerLastNameEqual(query.getCustomerLastName()));
+        return Optional.ofNullable(listToOne(removeNullElements(specifications)));
     }
 
-    public SpecSearchCriteria getCriteria() {
-        return criteria;
-    }
 
-    @Override
-    public Predicate toPredicate(final Root<OrderEntity> root, final CriteriaQuery<?> query, final CriteriaBuilder builder) {
-        switch (criteria.getOperation()) {
-            case EQUALITY:
-                return builder.equal(root.get(criteria.getKey()), criteria.getValue());
-            case NEGATION:
-                return builder.notEqual(root.get(criteria.getKey()), criteria.getValue());
-            case GREATER_THAN:
-                return builder.greaterThan(root.get(criteria.getKey()), criteria.getValue().toString());
-            case LESS_THAN:
-                return builder.lessThan(root.get(criteria.getKey()), criteria.getValue().toString());
-            case LIKE:
-                return builder.like(root.get(criteria.getKey()), criteria.getValue().toString());
-            case STARTS_WITH:
-                return builder.like(root.get(criteria.getKey()), criteria.getValue() + "%");
-            case ENDS_WITH:
-                return builder.like(root.get(criteria.getKey()), "%" + criteria.getValue());
-            case CONTAINS:
-                return builder.like(root.get(criteria.getKey()), "%" + criteria.getValue() + "%");
-            default:
-                return null;
+    public static Specification<OrderEntity> byOrderIdEqual(String orderId) {
+        if (orderId == null) {
+            return null;
         }
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("orderId"), orderId);
+    }
+
+    public static Specification<OrderEntity> byPilotesNumberEqual(Integer pilotesNumber) {
+        if (pilotesNumber == 0) {
+            return null;
+        }
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("pilotesNumber"), pilotesNumber);
+    }
+
+    public static Specification<OrderEntity> byCustomerIdEqual(String customerId) {
+        if (customerId == null) {
+            return null;
+        }
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerId"), customerId);
+    }
+
+
+    public static Specification<OrderEntity> byCustomerFirstNameEqual(String customerFirstName) {
+        if (customerFirstName == null) {
+            return null;
+        }
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerFirstName"), customerFirstName);
+    }
+
+    public static Specification<OrderEntity> byCustomerLastNameEqual(String customerLastName) {
+        if (customerLastName == null) {
+            return null;
+        }
+        return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("customerLastName"), customerLastName);
+    }
+
+
+    private static List<Specification<OrderEntity>> removeNullElements(List<Specification<OrderEntity>> specifications) {
+        return specifications.stream().filter(Objects::nonNull).toList();
+    }
+
+    private static Specification<OrderEntity> listToOne(List<Specification<OrderEntity>> specifications) {
+        Specification<OrderEntity> specification = null;
+        for (Specification<OrderEntity> spec : specifications) {
+            if (specification == null) {
+                specification = spec;
+            } else {
+                specification = specification.and(spec);
+            }
+        }
+        return specification;
     }
 }

@@ -1,19 +1,19 @@
 package com.tui.ordering.pilotes.model;
 
-public class Client {
+public class Customer {
 
-    private final String clientId;
+    private final String customerId;
     private final String firstName;
     private final String lastName;
 
-    public Client(Builder builder) {
-        this.clientId = builder.clientId;
+    public Customer(Builder builder) {
+        this.customerId = builder.customerId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
     }
 
-    public String getClientId() {
-        return clientId;
+    public String getCustomerId() {
+        return customerId;
     }
 
     public String getFirstName() {
@@ -24,9 +24,8 @@ public class Client {
         return lastName;
     }
 
-
     public static final class Builder {
-        private String clientId;
+        private String customerId;
         private String firstName;
         private String lastName;
 
@@ -37,8 +36,8 @@ public class Client {
             return new Builder();
         }
 
-        public Builder clientId(String clientId) {
-            this.clientId = clientId;
+        public Builder customerId(String customerId) {
+            this.customerId = customerId;
             return this;
         }
 
@@ -52,8 +51,8 @@ public class Client {
             return this;
         }
 
-        public Client build() {
-            return new Client(this);
+        public Customer build() {
+            return new Customer(this);
         }
     }
 }

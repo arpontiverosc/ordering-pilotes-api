@@ -13,7 +13,7 @@ public class CreateOrderResponseMapper {
                 .orderId(order.getOrderId()).orderTotal(order.getOrderTotal())
                 .pilotesNumber(order.getPilotesNumber())
                 .createdAt(order.getCreatedAt())
-                .userIdentifier(order.getUserIdentifier())
+                .userIdentifier(order.getCustomer().getCustomerId())
                 .build();
     }
 

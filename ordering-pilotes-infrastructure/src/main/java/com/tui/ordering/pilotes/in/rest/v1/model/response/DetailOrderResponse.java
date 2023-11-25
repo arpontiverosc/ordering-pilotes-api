@@ -13,5 +13,5 @@ public class DetailOrderResponse {
     private final String deliveryAddress;
     private final int pilotesNumber;
     private final double orderTotal;
-    private final String userIdentifier;
+    private final DetailCustomerResponse detailCustomerResponse;
 }

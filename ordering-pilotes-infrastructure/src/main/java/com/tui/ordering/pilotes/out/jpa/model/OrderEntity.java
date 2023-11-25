@@ -20,8 +20,8 @@ public class OrderEntity {
     private String orderId;
 
     @ManyToOne
-    to-do
-    private ClientEntity client;
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
+    private CustomerEntity customer;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "deliveryAddress_id", referencedColumnName = "id", nullable = false)

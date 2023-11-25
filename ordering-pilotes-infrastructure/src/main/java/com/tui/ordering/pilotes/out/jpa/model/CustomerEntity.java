@@ -1,19 +1,19 @@
 package com.tui.ordering.pilotes.out.jpa.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "clients")
+import java.util.Set;
+
+@Entity(name = "customers")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
-public class ClientEntity {
+public class CustomerEntity {
 
     @Id
     @EqualsAndHashCode.Include
@@ -25,5 +25,7 @@ public class ClientEntity {
     @Column(name = "last_name")
     private String lastName;
 
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private Set<OrderEntity> orders;
 
 }

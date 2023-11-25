@@ -10,7 +10,7 @@ public class DetailOrderResponseMapper {
                 .deliveryAddress(order.getDeliveryAddress().getAddressId())
                 .pilotesNumber(order.getPilotesNumber())
                 .orderTotal(order.getOrderTotal())
-                .userIdentifier(order.getUserIdentier())
+                .detailCustomerResponse(DetailCustomerResponseMapper.from(order.getCustomer()))
                 .build();
     }
 }

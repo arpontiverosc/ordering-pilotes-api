@@ -1,6 +1,7 @@
 package com.tui.ordering.pilotes;
 
 import com.tui.ordering.pilotes.model.Address;
+import com.tui.ordering.pilotes.model.Customer;
 import com.tui.ordering.pilotes.model.Order;
 import com.tui.ordering.pilotes.port.in.CreateOrderUseCase;
 import com.tui.ordering.pilotes.port.in.model.CreateOrderCommand;
@@ -46,10 +47,11 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
                         .postcode(command.getDeliveryAddress().getPostcode())
                         .build()
                 )
-                .userIdentifier(command.getUserIdentifier())
+                .customer(Customer.Builder.builder()
+                        .customerId(command.getUserIdentifier())
+                        .build())
                 .pilotes(command.getPilotesNumber())
                 .orderTotal(pilotesService.getPrice()+command.getPilotesNumber())
                 .build();
-
     }
 }

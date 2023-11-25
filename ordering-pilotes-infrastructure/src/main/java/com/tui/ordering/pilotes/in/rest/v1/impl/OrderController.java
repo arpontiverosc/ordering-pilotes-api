@@ -3,9 +3,11 @@ package com.tui.ordering.pilotes.in.rest.v1.impl;
 import com.tui.ordering.pilotes.in.rest.v1.OrderPilotesApi;
 import com.tui.ordering.pilotes.in.rest.v1.mapper.command.CreateOrderCommandMapper;
 import com.tui.ordering.pilotes.in.rest.v1.mapper.command.UpdateOrderCommandMapper;
+import com.tui.ordering.pilotes.in.rest.v1.mapper.query.CreateSearchOrderQueryMapper;
 import com.tui.ordering.pilotes.in.rest.v1.mapper.response.CreateOrderResponseMapper;
 import com.tui.ordering.pilotes.in.rest.v1.mapper.response.DetailOrderResponseMapper;
 import com.tui.ordering.pilotes.in.rest.v1.model.request.CreateOrderRequest;
+import com.tui.ordering.pilotes.in.rest.v1.model.request.SearchOrderRequest;
 import com.tui.ordering.pilotes.in.rest.v1.model.request.UpdateOrderRequest;
 import com.tui.ordering.pilotes.in.rest.v1.model.response.CreateOrderResponse;
 import com.tui.ordering.pilotes.in.rest.v1.model.response.DetailOrderResponse;
@@ -32,8 +34,8 @@ public class OrderController implements OrderPilotesApi {
     }
 
     @Override
-    public List<DetailOrderResponse> searchOrdersV1(String search) {
-        List<Order> orders = searchOrdersUseCase.execute(search);
+    public List<DetailOrderResponse> searchOrdersV1(SearchOrderRequest request) {
+        List<Order> orders = searchOrdersUseCase.execute(CreateSearchOrderQueryMapper.from(request));
         return orders.stream().map(DetailOrderResponseMapper::from).toList();
     }
 
