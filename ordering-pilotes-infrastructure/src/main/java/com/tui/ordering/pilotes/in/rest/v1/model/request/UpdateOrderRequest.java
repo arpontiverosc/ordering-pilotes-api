@@ -20,5 +20,5 @@ public class UpdateOrderRequest {
     private final OrderAddress deliveryAddress;
 
     @NotNull(message = OrderErrorCode.PILOTES_NUMBER_MANDATORY)
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
 }

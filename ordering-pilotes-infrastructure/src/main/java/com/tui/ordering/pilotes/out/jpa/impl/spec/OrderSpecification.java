@@ -29,7 +29,7 @@ public class OrderSpecification {
     }
 
     public static Specification<OrderEntity> byPilotesNumberEqual(Integer pilotesNumber) {
-        if (pilotesNumber == 0) {
+        if (pilotesNumber == null) {
             return null;
         }
         return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("pilotesNumber"), pilotesNumber);

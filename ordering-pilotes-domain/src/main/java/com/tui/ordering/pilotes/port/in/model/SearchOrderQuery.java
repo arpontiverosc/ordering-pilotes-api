@@ -3,7 +3,7 @@ package com.tui.ordering.pilotes.port.in.model;
 public class SearchOrderQuery {
 
     private final String orderId;
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
     private final String customerId;
     private final String customerFirstName;
     private final String customerLastName;
@@ -20,7 +20,7 @@ public class SearchOrderQuery {
         return orderId;
     }
 
-    public int getPilotesNumber() {
+    public Integer getPilotesNumber() {
         return pilotesNumber;
     }
 
@@ -39,7 +39,7 @@ public class SearchOrderQuery {
 
     public static final class Builder {
         private String orderId;
-        private int pilotesNumber;
+        private Integer pilotesNumber;
         private String customerId;
         private String customerFirstName;
         private String customerLastName;
@@ -56,7 +56,7 @@ public class SearchOrderQuery {
             return this;
         }
 
-        public Builder pilotesNumber(int pilotesNumber) {
+        public Builder pilotesNumber(Integer pilotesNumber) {
             this.pilotesNumber = pilotesNumber;
             return this;
         }

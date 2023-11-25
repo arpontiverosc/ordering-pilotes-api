@@ -12,7 +12,7 @@ import lombok.ToString;
 public class SearchOrderRequest {
 
     private final String orderId;
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
     private final String customerId;
     private final String customerFirstName;
     private final String customerLastName;

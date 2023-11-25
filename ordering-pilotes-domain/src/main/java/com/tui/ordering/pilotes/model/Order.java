@@ -7,7 +7,7 @@ public class Order {
     private final String orderId;
     private final Customer customer;
     private final Address deliveryAddress;
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
     private final double orderTotal;
     private final OffsetDateTime createdAt;
 
@@ -25,7 +25,7 @@ public class Order {
         return deliveryAddress;
     }
 
-    public int getPilotesNumber() {
+    public Integer getPilotesNumber() {
         return pilotesNumber;
     }
 
@@ -49,7 +49,7 @@ public class Order {
         private String orderId;
         private Customer customer;
         private Address deliveryAddress;
-        private int pilotesNumber;
+        private Integer pilotesNumber;
         private double orderTotal;
         private OffsetDateTime createdAt;
 
@@ -75,7 +75,7 @@ public class Order {
             return this;
         }
 
-        public Builder pilotes(int pilotes) {
+        public Builder pilotes(Integer pilotes) {
             this.pilotesNumber = pilotes;
             return this;
         }
