@@ -32,7 +32,7 @@ public class OrderJpaEntityMerger {
         }
         from(order.getDeliveryAddress(), addressEntity);
         orderToSave.setDeliveryAddress(addressEntity);
-
+        orderToSave.setEmail(order.getEmail());
         orderToSave.setPilotesNumber(order.getPilotesNumber());
         orderToSave.setOrderTotal(order.getOrderTotal());
     }

@@ -33,6 +33,9 @@ public class OrderEntity {
     @Column(name = "order_total")
     private double orderTotal;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "created_at")
     private OffsetDateTime createdAt;
 

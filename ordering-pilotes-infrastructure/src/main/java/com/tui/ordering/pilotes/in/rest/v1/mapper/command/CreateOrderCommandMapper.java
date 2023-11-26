@@ -18,6 +18,7 @@ public class CreateOrderCommandMapper {
                                 .country(request.getDeliveryAddress().getCountry())
                                 .build())
                 .pilotes(request.getPilotesNumber())
+                .email(request.getEmail())
                 .build();
     }
 

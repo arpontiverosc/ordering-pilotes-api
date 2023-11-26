@@ -14,6 +14,7 @@ public class CreateOrderResponseMapper {
                 .pilotesNumber(order.getPilotesNumber())
                 .createdAt(order.getCreatedAt())
                 .userIdentifier(order.getCustomer().getCustomerId())
+                .email(order.getEmail())
                 .build();
     }
 

@@ -52,6 +52,7 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
                         .build())
                 .pilotes(command.getPilotesNumber())
                 .orderTotal(pilotesService.getPrice()+command.getPilotesNumber())
+                .email(command.getEmail())
                 .build();
     }
 }

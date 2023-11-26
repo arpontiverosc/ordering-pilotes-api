@@ -8,672 +8,772 @@
 	"item": [
 		{
 			"name": "New order",
-			"event": [
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "New order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "New order client not found",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "New order wrong pilotes number",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 422\"] = responseCode.code === 422;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "New order poscode invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111555\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order client not found",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order wrong pilotes number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "Update order",
-			"event": [
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 204\"] = responseCode.code === 204;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Update order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders/472bd97a-e744-4f40-9b14-159dc1881591",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders",
+								"472bd97a-e744-4f40-9b14-159dc1881591"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders/472bd97a-e744-4f40-9b14-159dc1881591",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders",
-						"472bd97a-e744-4f40-9b14-159dc1881591"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update order not found",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 204\"] = responseCode.code === 204;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Update order not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders/01f0db60-7d48-42a0-81f3-6fc9edbb8d0d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders",
+								"01f0db60-7d48-42a0-81f3-6fc9edbb8d0d"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders/01f0db60-7d48-42a0-81f3-6fc9edbb8d0d",
-					"protocol": "http",
-					"host": [
-						"localhost"
+				{
+					"name": "Update order after 5 minutes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders",
-						"01f0db60-7d48-42a0-81f3-6fc9edbb8d0d"
-					]
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Update order after 5 minutes",
-			"event": [
+			"name": "Search orders",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 422\"] = responseCode.code === 422;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Search all orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/v1/orders",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search all orders",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders by order id",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?orderId=472bd97a-e744-4f40-9b14-159dc1881591",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders by order id",
+					"event": [
 						{
-							"key": "orderId",
-							"value": "472bd97a-e744-4f40-9b14-159dc1881591"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders by pilotes number",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?orderId=472bd97a-e744-4f40-9b14-159dc1881591",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "472bd97a-e744-4f40-9b14-159dc1881591"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?pilotesNumber=10",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders by pilotes number",
+					"event": [
 						{
-							"key": "pilotesNumber",
-							"value": "10"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders by customer Id 1011",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?pilotesNumber=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "pilotesNumber",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerId=1011",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders by customer Id 1011",
+					"event": [
 						{
-							"key": "customerId",
-							"value": "1011"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders by customer Id 1012",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerId=1011",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "1011"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerId=1012",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders by customer Id 1012",
+					"event": [
 						{
-							"key": "customerId",
-							"value": "1012"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders by customer Id 1013",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerId=1012",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "1012"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerId=1013",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders by customer Id 1013",
+					"event": [
 						{
-							"key": "customerId",
-							"value": "1013"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer firstname",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerId=1013",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "1013"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerFirstName=Antonio",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer firstname",
+					"event": [
 						{
-							"key": "customerFirstName",
-							"value": "Antonio"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer firstname contrains \"A\"",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=Antonio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "Antonio"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerFirstName=A",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer with params",
+					"event": [
 						{
-							"key": "customerFirstName",
-							"value": "A"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer firstname contrains \"a\"",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=A&customerId=1011&customerLastName=t",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "A"
+								},
+								{
+									"key": "customerId",
+									"value": "1011"
+								},
+								{
+									"key": "customerLastName",
+									"value": "t"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerFirstName=a",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer firstname contrains \"A\"",
+					"event": [
 						{
-							"key": "customerFirstName",
-							"value": "a"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer firstname contrains \"n\"",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "A"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerFirstName=n",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer firstname contrains \"a\"",
+					"event": [
 						{
-							"key": "customerFirstName",
-							"value": "n"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer lastname",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerLastName:Pontiveros",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer firstname contrains \"n\"",
+					"event": [
 						{
-							"key": "customerLastName:Pontiveros",
-							"value": null
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search orders customer lastname contrains \"t\"",
-			"event": [
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"tests[\"response code is 201\"] = responseCode.code === 201;"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/v1/orders?customerLastName=t",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"orders"
-					],
-					"query": [
+					"name": "Search orders customer lastname",
+					"event": [
 						{
-							"key": "customerLastName",
-							"value": "t"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerLastName:Pontiveros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerLastName:Pontiveros",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search orders customer lastname contrains \"t\"",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/orders?customerLastName=t",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "customerLastName",
+									"value": "t"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

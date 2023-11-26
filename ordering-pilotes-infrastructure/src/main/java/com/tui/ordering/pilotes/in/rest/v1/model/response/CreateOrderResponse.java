@@ -19,5 +19,6 @@ public class CreateOrderResponse {
     private final double orderTotal;
     private final String userIdentifier;
     private final OffsetDateTime createdAt;
+    private final String email;
 
 }

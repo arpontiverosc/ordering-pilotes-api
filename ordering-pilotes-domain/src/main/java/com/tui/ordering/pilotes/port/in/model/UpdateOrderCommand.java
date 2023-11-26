@@ -5,7 +5,7 @@ public class UpdateOrderCommand {
     private final String orderId;
     private final String userIdentifier;
     private final OrderAddress deliveryAddress;
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
 
     private UpdateOrderCommand(Builder builder) {
         this.userIdentifier = builder.userIdentifier;
@@ -22,7 +22,7 @@ public class UpdateOrderCommand {
         return deliveryAddress;
     }
 
-    public int getPilotesNumber() {
+    public Integer getPilotesNumber() {
         return pilotesNumber;
     }
 
@@ -60,7 +60,7 @@ public class UpdateOrderCommand {
             return this;
         }
 
-        public Builder pilotes(int pilotesNumber) {
+        public Builder pilotes(Integer pilotesNumber) {
             this.pilotesNumber = pilotesNumber;
             return this;
         }

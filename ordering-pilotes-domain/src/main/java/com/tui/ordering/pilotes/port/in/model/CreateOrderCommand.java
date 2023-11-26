@@ -4,12 +4,14 @@ public class CreateOrderCommand {
 
     private final String userIdentifier;
     private final OrderAddress deliveryAddress;
-    private final int pilotesNumber;
+    private final Integer pilotesNumber;
+    private final String email;
 
     private CreateOrderCommand(Builder builder) {
         this.userIdentifier = builder.userIdentifier;
         this.deliveryAddress = builder.deliveryAddress;
         this.pilotesNumber = builder.pilotesNumber;
+        this.email = builder.email;
     }
 
     public String getUserIdentifier() {
@@ -20,14 +22,19 @@ public class CreateOrderCommand {
         return deliveryAddress;
     }
 
-    public int getPilotesNumber() {
+    public Integer getPilotesNumber() {
         return pilotesNumber;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public static final class Builder {
         private String userIdentifier;
         private OrderAddress deliveryAddress;
-        private int pilotesNumber;
+        private Integer pilotesNumber;
+        private String email;
 
         private Builder() {
         }
@@ -46,8 +53,13 @@ public class CreateOrderCommand {
             return this;
         }
 
-        public Builder pilotes(int pilotesNumber) {
+        public Builder pilotes(Integer pilotesNumber) {
             this.pilotesNumber = pilotesNumber;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 

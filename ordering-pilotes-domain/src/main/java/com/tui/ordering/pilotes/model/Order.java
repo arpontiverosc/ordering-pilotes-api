@@ -9,6 +9,7 @@ public class Order {
     private final Address deliveryAddress;
     private final Integer pilotesNumber;
     private final double orderTotal;
+    private final String email;
     private final OffsetDateTime createdAt;
 
     private Order(Builder builder) {
@@ -17,6 +18,7 @@ public class Order {
         this.orderTotal = builder.orderTotal;
         this.pilotesNumber = builder.pilotesNumber;
         this.deliveryAddress = builder.deliveryAddress;
+        this.email = builder.email;
         this.createdAt = builder.createdAt;
     }
 
@@ -45,12 +47,17 @@ public class Order {
         return createdAt;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public static final class Builder {
         private String orderId;
         private Customer customer;
         private Address deliveryAddress;
         private Integer pilotesNumber;
         private double orderTotal;
+        private String email;
         private OffsetDateTime createdAt;
 
         private Builder() {
@@ -87,6 +94,11 @@ public class Order {
 
         public Builder createdAt(OffsetDateTime createdAt) {
             this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 

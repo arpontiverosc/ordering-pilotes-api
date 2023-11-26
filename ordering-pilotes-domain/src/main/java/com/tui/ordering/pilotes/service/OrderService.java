@@ -9,11 +9,12 @@ public class OrderService {
 
     private final FindOrderRepository findOrderRepository;
 
+
     public OrderService(FindOrderRepository findOrderRepository) {
         this.findOrderRepository = findOrderRepository;
     }
 
-    public void isBefore(int minutes, String orderId) {
+    public void isBefore(Integer minutes, String orderId) {
         Order order = findById(orderId);
         if (order.getCreatedAt().isAfter(order.getCreatedAt().plusMinutes(minutes))) {
             throw new OrderBeingCookingException();
@@ -23,4 +24,5 @@ public class OrderService {
     public Order findById(String orderId) {
         return findOrderRepository.findById(orderId).orElseThrow(OrderNotFoundException::new);
     }
+
 }

@@ -11,6 +11,8 @@ public class DetailOrderResponseMapper {
                 .pilotesNumber(order.getPilotesNumber())
                 .orderTotal(order.getOrderTotal())
                 .customer(DetailCustomerResponseMapper.from(order.getCustomer()))
+                .createAt(order.getCreatedAt())
+                .email(order.getEmail())
                 .build();
     }
 }

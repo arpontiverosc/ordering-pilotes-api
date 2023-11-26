@@ -22,6 +22,7 @@ public class OrderMapper {
                         .build())
                 .deliveryAddress(AddressMapper.from(orderEntity.getDeliveryAddress()))
                 .createdAt(orderEntity.getCreatedAt())
+                .email(orderEntity.getEmail())
                 .build();
     }
 
