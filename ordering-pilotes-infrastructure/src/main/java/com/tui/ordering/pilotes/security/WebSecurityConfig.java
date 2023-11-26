@@ -10,11 +10,19 @@ import org.springframework.http.HttpMethod;
 @Configuration
 public class WebSecurityConfig {
 
+    private static final String[] AUTH_WHITE_LIST = {
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/v2/api-docs/**",
+            "/swagger-resources/**"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .httpBasic()
                 .and().authorizeHttpRequests()
+                .requestMatchers(AUTH_WHITE_LIST).permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/orders").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/v1/orders/{orderId}").permitAll()
                 .requestMatchers(HttpMethod.GET, "/v1/orders").authenticated()

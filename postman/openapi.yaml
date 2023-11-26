@@ -1,0 +1,181 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /v1/orders/{orderId}:
+    put:
+      tags:
+        - order-controller
+      operationId: updateOrderV1
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrderRequest'
+        required: true
+      responses:
+        '204':
+          description: No Content
+  /v1/orders:
+    get:
+      tags:
+        - order-controller
+      operationId: searchOrdersV1
+      parameters:
+        - name: request
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SearchOrderRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DetailOrderResponse'
+    post:
+      tags:
+        - order-controller
+      operationId: createOrderV1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrderResponse'
+components:
+  schemas:
+    OrderAddress:
+      required:
+        - city
+        - country
+        - postcode
+        - street
+      type: object
+      properties:
+        street:
+          type: string
+        postcode:
+          pattern: \d{5}
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+    UpdateOrderRequest:
+      required:
+        - deliveryAddress
+        - email
+        - pilotesNumber
+        - userIdentifier
+      type: object
+      properties:
+        userIdentifier:
+          type: string
+        deliveryAddress:
+          $ref: '#/components/schemas/OrderAddress'
+        pilotesNumber:
+          type: integer
+          format: int32
+        email:
+          type: string
+    CreateOrderRequest:
+      required:
+        - deliveryAddress
+        - email
+        - pilotesNumber
+        - userIdentifier
+      type: object
+      properties:
+        userIdentifier:
+          type: string
+        deliveryAddress:
+          $ref: '#/components/schemas/OrderAddress'
+        pilotesNumber:
+          type: integer
+          format: int32
+        email:
+          type: string
+    CreateOrderResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        deliveryAddress:
+          type: string
+        pilotesNumber:
+          type: integer
+          format: int32
+        orderTotal:
+          type: number
+          format: double
+        userIdentifier:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        email:
+          type: string
+    SearchOrderRequest:
+      type: object
+      properties:
+        orderId:
+          type: string
+        pilotesNumber:
+          type: integer
+          format: int32
+        customerId:
+          type: string
+        customerFirstName:
+          type: string
+        customerLastName:
+          type: string
+    DetailCustomerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    DetailOrderResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        deliveryAddress:
+          type: string
+        pilotesNumber:
+          type: integer
+          format: int32
+        orderTotal:
+          type: number
+          format: double
+        customer:
+          $ref: '#/components/schemas/DetailCustomerResponse'
+        createAt:
+          type: string
+          format: date-time
+        email:
+          type: string
