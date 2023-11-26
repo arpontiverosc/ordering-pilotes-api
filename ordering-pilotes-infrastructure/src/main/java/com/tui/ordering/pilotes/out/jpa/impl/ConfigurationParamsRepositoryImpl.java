@@ -1,7 +1,8 @@
 package com.tui.ordering.pilotes.out.jpa.impl;
 
 
-import com.tui.ordering.pilotes.out.jpa.config.ConfigProperties;
+
+import com.tui.ordering.pilotes.security.ConfigProperties;
 import com.tui.ordering.pilotes.port.out.ConfigurationParamsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

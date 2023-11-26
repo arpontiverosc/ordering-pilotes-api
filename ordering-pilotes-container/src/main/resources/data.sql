@@ -56,3 +56,26 @@ values ('9da9daf8-f3f6-4545-a965-fae431677134',	'Madrid', 'Spain', '251111', 'Av
 
 insert into orders (ORDER_ID,CREATED_AT,EMAIL,ORDER_TOTAL,PILOTES_NUMBER,CUSTOMER_ID,DELIVERY_ADDRESS_ID)
 values ('472bd97a-e744-4f40-9b14-159dc1881521',	'2023-11-22 17:48:02.196333','example@gmail.com','11.33','10','1015','9da9daf8-f3f6-4545-a965-fae431677134');
+
+
+
+insert into AUTHORITIES(ID,NAME)
+values ('1', 'READ');
+
+insert into AUTHORITIES(ID,NAME)
+values ('2', 'WRITE');
+
+insert into AUTHORITIES(ID,NAME)
+values ('3', 'ADMIN');
+
+insert into USERS(ID,PASSWORD,USER_NAME)
+values ('1011', '{bcrypt}$2a$10$cihVTJ5G9OYyOQiD7k28tOzmUOwOdh/NVUDpmig88Ao4bcP/YOMx.', 'arpontiverosc');
+
+insert into USER_AUTHORITY(USER_ID,AUTHORITY_ID)
+values ('1011', '1');
+
+insert into USER_AUTHORITY(USER_ID,AUTHORITY_ID)
+values ('1011', '2');
+
+insert into USER_AUTHORITY(USER_ID,AUTHORITY_ID)
+values ('1011', '3');

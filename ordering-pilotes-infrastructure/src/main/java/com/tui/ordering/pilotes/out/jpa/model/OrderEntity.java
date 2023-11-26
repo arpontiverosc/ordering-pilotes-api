@@ -28,7 +28,7 @@ public class OrderEntity {
     private AddressEntity deliveryAddress;
 
     @Column(name = "pilotes_number")
-    private int pilotesNumber;
+    private Integer pilotesNumber;
 
     @Column(name = "order_total")
     private double orderTotal;

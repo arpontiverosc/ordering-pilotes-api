@@ -44,6 +44,19 @@ public class UpdateOrderUseCaseImpl implements UpdateOrderUseCase {
     }
 
     private Order createOrderFromCommand(UpdateOrderCommand command) {
-        return Order.Builder.builder().orderId(command.getOrderId()).deliveryAddress(Address.Builder.builder().postcode(command.getDeliveryAddress().getPostcode()).city(command.getDeliveryAddress().getCity()).street(command.getDeliveryAddress().getStreet()).country(command.getDeliveryAddress().getCountry()).postcode(command.getDeliveryAddress().getPostcode()).build()).customer(Customer.Builder.builder().customerId(command.getUserIdentifier()).build()).pilotes(command.getPilotesNumber()).orderTotal(pilotesService.getPrice() + command.getPilotesNumber()).build();
+        return Order.Builder.builder().orderId(command.getOrderId())
+                .deliveryAddress(Address.Builder.builder()
+                        .postcode(command.getDeliveryAddress().getPostcode())
+                        .city(command.getDeliveryAddress().getCity())
+                        .street(command.getDeliveryAddress().getStreet())
+                        .country(command.getDeliveryAddress().getCountry())
+                        .postcode(command.getDeliveryAddress().getPostcode())
+                        .build())
+                .customer(Customer.Builder.builder()
+                        .customerId(command.getUserIdentifier()).build())
+                .pilotes(command.getPilotesNumber())
+                .orderTotal(pilotesService.getPrice() + command.getPilotesNumber())
+                .email(command.getEmail())
+                .build();
     }
 }

@@ -18,6 +18,7 @@ public class UpdateOrderCommandMapper {
                         .street(request.getDeliveryAddress().getStreet())
                         .country(request.getDeliveryAddress().getCountry())
                         .build())
+                .email(request.getEmail())
                 .pilotes(request.getPilotesNumber())
                 .build();
     }

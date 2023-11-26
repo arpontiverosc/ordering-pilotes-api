@@ -6,12 +6,14 @@ public class UpdateOrderCommand {
     private final String userIdentifier;
     private final OrderAddress deliveryAddress;
     private final Integer pilotesNumber;
+    private final String email;
 
     private UpdateOrderCommand(Builder builder) {
         this.userIdentifier = builder.userIdentifier;
         this.deliveryAddress = builder.deliveryAddress;
         this.pilotesNumber = builder.pilotesNumber;
         this.orderId = builder.orderId;
+        this.email = builder.email;
     }
 
     public String getUserIdentifier() {
@@ -30,12 +32,19 @@ public class UpdateOrderCommand {
         return orderId;
     }
 
+
+    public String getEmail() {
+        return email;
+    }
+
     public static final class Builder {
 
         private String orderId;
         private String userIdentifier;
         private OrderAddress deliveryAddress;
         private int pilotesNumber;
+        private String email;
+
 
         private Builder() {
         }
@@ -62,6 +71,11 @@ public class UpdateOrderCommand {
 
         public Builder pilotes(Integer pilotesNumber) {
             this.pilotesNumber = pilotesNumber;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 
