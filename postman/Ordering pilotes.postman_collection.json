@@ -27,7 +27,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -67,7 +67,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111555\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111555\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,7 +96,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -136,7 +136,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -181,7 +181,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -222,7 +222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -263,7 +263,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -271,7 +271,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/orders",
+							"raw": "http://localhost:8080/v1/orders/01f0db60-7d48-42a0-81f3-6fc9edbb8d0d",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -279,7 +279,8 @@
 							"port": "8080",
 							"path": [
 								"v1",
-								"orders"
+								"orders",
+								"01f0db60-7d48-42a0-81f3-6fc9edbb8d0d"
 							]
 						}
 					},
@@ -307,7 +308,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/orders",
+							"raw": "http://localhost:8080/v1/orders?customerFirstName=A&customerId=1011",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -316,6 +317,16 @@
 							"path": [
 								"v1",
 								"orders"
+							],
+							"query": [
+								{
+									"key": "customerFirstName",
+									"value": "A"
+								},
+								{
+									"key": "customerId",
+									"value": "1011"
+								}
 							]
 						}
 					},
@@ -772,6 +783,41 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "123456",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "arpontiverosc",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}
