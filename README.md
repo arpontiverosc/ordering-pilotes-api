@@ -40,5 +40,7 @@ To start up container.
 
 [Swagger](http://localhost:8080/swagger-ui/index.html)
 
+[Open Api Yaml](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/postman/openapi.yaml)
+
 [Postman](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/postman)
 
