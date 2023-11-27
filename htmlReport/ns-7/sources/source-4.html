@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UpdateOrderRequest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.in.rest.v1.model.request</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateOrderRequest (com.tui.ordering.pilotes.in.rest.v1.model.request)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateOrderRequest</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,7%
+  </span>
+  <span class="absValue">
+    (6/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,7%
+  </span>
+  <span class="absValue">
+    (6/7)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UpdateOrderRequest$UpdateOrderRequestBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.in.rest.v1.model.request;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.util.OrderErrorCode;
+&nbsp;import jakarta.validation.constraints.Email;
+&nbsp;import jakarta.validation.constraints.NotBlank;
+&nbsp;import jakarta.validation.constraints.NotNull;
+&nbsp;import lombok.*;
+&nbsp;
+<b class="fc">&nbsp;@AllArgsConstructor</b>
+&nbsp;@Getter
+&nbsp;@Setter
+<b class="nc">&nbsp;@ToString</b>
+<b class="fc">&nbsp;@Builder</b>
+&nbsp;public class UpdateOrderRequest {
+&nbsp;
+&nbsp;    @NotBlank(message = OrderErrorCode.USER_IDENTIFIER_MANDATORY)
+<b class="fc">&nbsp;    private final String userIdentifier;</b>
+&nbsp;
+&nbsp;    @NotNull(message = OrderErrorCode.DELIVERY_ADDRESS_MANDATORY)
+<b class="fc">&nbsp;    private final OrderAddress deliveryAddress;</b>
+&nbsp;
+&nbsp;    @NotNull(message = OrderErrorCode.PILOTES_NUMBER_MANDATORY)
+<b class="fc">&nbsp;    private final Integer pilotesNumber;</b>
+&nbsp;
+&nbsp;    @NotBlank(message = OrderErrorCode.EMAIL_MANDATORY)
+&nbsp;    @Email(message = OrderErrorCode.EMAIL_FORMAT)
+<b class="fc">&nbsp;    private final String email;</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

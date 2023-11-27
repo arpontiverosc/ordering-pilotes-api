@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UpdateOrderUseCaseImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateOrderUseCaseImpl (com.tui.ordering.pilotes)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateOrderUseCaseImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UpdateOrderUseCaseImpl$$SpringCGLIB$$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.model.Address;
+&nbsp;import com.tui.ordering.pilotes.model.Customer;
+&nbsp;import com.tui.ordering.pilotes.model.Order;
+&nbsp;import com.tui.ordering.pilotes.port.in.UpdateOrderUseCase;
+&nbsp;import com.tui.ordering.pilotes.port.in.model.UpdateOrderCommand;
+&nbsp;import com.tui.ordering.pilotes.port.out.ConfigurationParamsRepository;
+&nbsp;import com.tui.ordering.pilotes.port.out.SaveOrderRepository;
+&nbsp;import com.tui.ordering.pilotes.service.ClientService;
+&nbsp;import com.tui.ordering.pilotes.service.OrderService;
+&nbsp;import com.tui.ordering.pilotes.service.PilotesService;
+&nbsp;import com.tui.ordering.pilotes.exception.TimeUpdatableNotFoundException;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;import java.util.UUID;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;@RequiredArgsConstructor</b>
+&nbsp;public class UpdateOrderUseCaseImpl implements UpdateOrderUseCase {
+&nbsp;
+&nbsp;    private final SaveOrderRepository saveOrderRepository;
+&nbsp;    private final ConfigurationParamsRepository configurationParamsRepository;
+&nbsp;    private final PilotesService pilotesService;
+&nbsp;    private final ClientService clientService;
+&nbsp;    private final OrderService orderService;
+&nbsp;
+&nbsp;    @Transactional
+&nbsp;    @Override
+&nbsp;    public void execute(UpdateOrderCommand command) {
+<b class="fc">&nbsp;        validateCommand(command);</b>
+<b class="fc">&nbsp;        Order order = createOrderFromCommand(command);</b>
+<b class="fc">&nbsp;        saveOrderRepository.save(order);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void validateCommand(UpdateOrderCommand command) {
+<b class="fc">&nbsp;        orderService.findById(command.getOrderId());</b>
+<b class="fc">&nbsp;        pilotesService.validNumber(command.getPilotesNumber());</b>
+<b class="fc">&nbsp;        clientService.retrieveClient(command.getUserIdentifier());</b>
+<b class="fc">&nbsp;        orderService.isBefore(configurationParamsRepository.getTimeUpdatable()</b>
+<b class="fc">&nbsp;                                    .orElseThrow(TimeUpdatableNotFoundException::new), command.getOrderId());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Order createOrderFromCommand(UpdateOrderCommand command) {
+<b class="fc">&nbsp;        return Order.Builder.builder().orderId(command.getOrderId())</b>
+<b class="fc">&nbsp;                .deliveryAddress(Address.Builder.builder()</b>
+<b class="fc">&nbsp;                        .postcode(command.getDeliveryAddress().getPostcode())</b>
+<b class="fc">&nbsp;                        .city(command.getDeliveryAddress().getCity())</b>
+<b class="fc">&nbsp;                        .street(command.getDeliveryAddress().getStreet())</b>
+<b class="fc">&nbsp;                        .country(command.getDeliveryAddress().getCountry())</b>
+<b class="fc">&nbsp;                        .postcode(command.getDeliveryAddress().getPostcode())</b>
+<b class="fc">&nbsp;                        .build())</b>
+<b class="fc">&nbsp;                .customer(Customer.Builder.builder()</b>
+<b class="fc">&nbsp;                        .customerId(command.getUserIdentifier()).build())</b>
+<b class="fc">&nbsp;                .pilotes(command.getPilotesNumber())</b>
+<b class="fc">&nbsp;                .orderTotal(pilotesService.getPrice() + command.getPilotesNumber())</b>
+<b class="fc">&nbsp;                .email(command.getEmail())</b>
+<b class="fc">&nbsp;                .build();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

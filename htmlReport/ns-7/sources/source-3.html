@@ -1,0 +1,178 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SearchOrderRequest</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.in.rest.v1.model.request</a>
+</div>
+
+<h1>Coverage Summary for Class: SearchOrderRequest (com.tui.ordering.pilotes.in.rest.v1.model.request)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SearchOrderRequest</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SearchOrderRequest$SearchOrderRequestBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (6/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (6/9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.in.rest.v1.model.request;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.util.OrderErrorCode;
+&nbsp;import jakarta.validation.constraints.Size;
+&nbsp;import lombok.*;
+&nbsp;
+<b class="fc">&nbsp;@AllArgsConstructor</b>
+&nbsp;@Getter
+&nbsp;@Setter
+<b class="nc">&nbsp;@ToString</b>
+<b class="nc">&nbsp;@Builder</b>
+&nbsp;public class SearchOrderRequest {
+&nbsp;
+&nbsp;    @Size(
+&nbsp;            min = 1,
+&nbsp;            message = OrderErrorCode.ORDER_ID_MIN_LENGTH)
+&nbsp;    @Size(
+&nbsp;            max = 50,
+&nbsp;            message = OrderErrorCode.ORDER_ID_MAX_LENGTH)
+<b class="fc">&nbsp;    private final String orderId;</b>
+&nbsp;
+<b class="fc">&nbsp;    private final Integer pilotesNumber;</b>
+&nbsp;
+&nbsp;    @Size(
+&nbsp;            min = 1,
+&nbsp;            message = OrderErrorCode.CUSTOMER_ID_MIN_LENGTH)
+&nbsp;    @Size(
+&nbsp;            max = 50,
+&nbsp;            message = OrderErrorCode.CUSTOMER_ID_MAX_LENGTH)
+<b class="fc">&nbsp;    private final String customerId;</b>
+&nbsp;
+&nbsp;    @Size(
+&nbsp;            min = 1,
+&nbsp;            message = OrderErrorCode.FIRST_NAME_MIN_LENGTH)
+&nbsp;    @Size(
+&nbsp;            max = 25,
+&nbsp;            message = OrderErrorCode.FIRST_NAME_MAX_LENGTH)
+<b class="fc">&nbsp;    private final String customerFirstName;</b>
+&nbsp;
+&nbsp;    @Size(
+&nbsp;            min = 1,
+&nbsp;            message = OrderErrorCode.LAST_NAME_MIN_LENGTH)
+&nbsp;    @Size(
+&nbsp;            max = 25,
+&nbsp;            message = OrderErrorCode.LAST_NAME_MAX_LENGTH)
+<b class="fc">&nbsp;    private final String customerLastName;</b>
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

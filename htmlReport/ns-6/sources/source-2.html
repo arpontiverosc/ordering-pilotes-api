@@ -1,0 +1,121 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DetailCustomerResponseMapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.in.rest.v1.mapper.response</a>
+</div>
+
+<h1>Coverage Summary for Class: DetailCustomerResponseMapper (com.tui.ordering.pilotes.in.rest.v1.mapper.response)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DetailCustomerResponseMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.in.rest.v1.mapper.response;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.response.DetailCustomerResponse;
+&nbsp;import com.tui.ordering.pilotes.model.Customer;
+&nbsp;import lombok.AccessLevel;
+&nbsp;import lombok.NoArgsConstructor;
+&nbsp;
+&nbsp;@NoArgsConstructor(access = AccessLevel.PRIVATE)
+&nbsp;public class DetailCustomerResponseMapper {
+&nbsp;    public static DetailCustomerResponse from(Customer customer) {
+<b class="fc">&nbsp;        return DetailCustomerResponse.builder()</b>
+<b class="fc">&nbsp;                .id(customer.getCustomerId())</b>
+<b class="fc">&nbsp;                .firstName(customer.getFirstName())</b>
+<b class="fc">&nbsp;                .lastName(customer.getLastName())</b>
+<b class="fc">&nbsp;                .build();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

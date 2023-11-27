@@ -1,0 +1,133 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OrderMapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.out.jpa.mapper</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderMapper (com.tui.ordering.pilotes.out.jpa.mapper)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.out.jpa.mapper;
+&nbsp;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.model.Customer;
+&nbsp;import com.tui.ordering.pilotes.model.Order;
+&nbsp;import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
+&nbsp;import lombok.AccessLevel;
+&nbsp;import lombok.NoArgsConstructor;
+&nbsp;
+&nbsp;@NoArgsConstructor(access = AccessLevel.PRIVATE)
+&nbsp;public class OrderMapper {
+&nbsp;
+&nbsp;    public static Order from(OrderEntity orderEntity) {
+<b class="fc">&nbsp;        return Order.Builder.builder()</b>
+<b class="fc">&nbsp;                .orderId(orderEntity.getOrderId())</b>
+<b class="fc">&nbsp;                .pilotes(orderEntity.getPilotesNumber())</b>
+<b class="fc">&nbsp;                .orderTotal(orderEntity.getOrderTotal())</b>
+<b class="fc">&nbsp;                .customer(Customer.Builder.builder()</b>
+<b class="fc">&nbsp;                        .customerId(orderEntity.getCustomer().getId())</b>
+<b class="fc">&nbsp;                        .firstName(orderEntity.getCustomer().getFirstName())</b>
+<b class="fc">&nbsp;                        .lastName(orderEntity.getCustomer().getLastName())</b>
+<b class="fc">&nbsp;                        .build())</b>
+<b class="fc">&nbsp;                .deliveryAddress(AddressMapper.from(orderEntity.getDeliveryAddress()))</b>
+<b class="fc">&nbsp;                .createdAt(orderEntity.getCreatedAt())</b>
+<b class="fc">&nbsp;                .email(orderEntity.getEmail())</b>
+<b class="fc">&nbsp;                .build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

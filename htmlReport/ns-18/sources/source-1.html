@@ -1,0 +1,104 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OrderPilotesApi</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.in.rest.v1</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderPilotesApi (com.tui.ordering.pilotes.in.rest.v1)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OrderPilotesApi</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.in.rest.v1;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.request.CreateOrderRequest;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.request.SearchOrderRequest;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.request.UpdateOrderRequest;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.response.CreateOrderResponse;
+&nbsp;import com.tui.ordering.pilotes.in.rest.v1.model.response.DetailOrderResponse;
+&nbsp;import jakarta.validation.Valid;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.MediaType;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;
+&nbsp;@RequestMapping(&quot;/v1/orders&quot;)
+&nbsp;public interface OrderPilotesApi {
+&nbsp;
+&nbsp;    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+&nbsp;    @ResponseStatus(HttpStatus.CREATED)
+&nbsp;    CreateOrderResponse createOrderV1(@Valid @RequestBody CreateOrderRequest request);
+&nbsp;
+&nbsp;
+&nbsp;    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+&nbsp;    @ResponseStatus(HttpStatus.OK)
+&nbsp;    List&lt;DetailOrderResponse&gt; searchOrdersV1(SearchOrderRequest searchOrderRequest);
+&nbsp;
+&nbsp;
+&nbsp;    @PutMapping(path = &quot;/{orderId}&quot;, consumes = MediaType.APPLICATION_JSON_VALUE)
+&nbsp;    @ResponseStatus(HttpStatus.NO_CONTENT)
+&nbsp;    void updateOrderV1(
+&nbsp;            @PathVariable(&quot;orderId&quot;) String orderId,
+&nbsp;            @Valid @RequestBody UpdateOrderRequest request);
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>

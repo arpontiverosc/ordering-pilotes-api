@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OrderSpecification</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.tui.ordering.pilotes.out.jpa.impl.spec</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderSpecification (com.tui.ordering.pilotes.out.jpa.impl.spec)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderSpecification</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91,7%
+  </span>
+  <span class="absValue">
+    (11/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95,1%
+  </span>
+  <span class="absValue">
+    (39/41)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.out.jpa.impl.spec;
+&nbsp;
+&nbsp;import com.tui.ordering.pilotes.out.jpa.model.CustomerEntity;
+&nbsp;import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
+&nbsp;import com.tui.ordering.pilotes.port.in.model.SearchOrderQuery;
+&nbsp;import jakarta.persistence.criteria.Join;
+&nbsp;import org.springframework.data.jpa.domain.Specification;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;
+<b class="nc">&nbsp;public class OrderSpecification {</b>
+&nbsp;    public static Optional&lt;Specification&lt;OrderEntity&gt;&gt; where(SearchOrderQuery query) {
+<b class="fc">&nbsp;        List&lt;Specification&lt;OrderEntity&gt;&gt; specifications = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        specifications.add(byOrderIdEqual(query.getOrderId()));</b>
+<b class="fc">&nbsp;        specifications.add(byPilotesNumberEqual(query.getPilotesNumber()));</b>
+<b class="fc">&nbsp;        specifications.add(byCustomerIdEqual(query.getCustomerId()));</b>
+<b class="fc">&nbsp;        specifications.add(byCustomerFirstNameEqual(query.getCustomerFirstName()));</b>
+<b class="fc">&nbsp;        specifications.add(byCustomerLastNameEqual(query.getCustomerLastName()));</b>
+<b class="fc">&nbsp;        return Optional.ofNullable(listToOne(removeNullElements(specifications)));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static Specification&lt;OrderEntity&gt; byOrderIdEqual(String orderId) {
+<b class="fc">&nbsp;        if (orderId == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return (root, query, criteriaBuilder) -&gt; criteriaBuilder.equal(root.get(&quot;orderId&quot;), orderId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Specification&lt;OrderEntity&gt; byPilotesNumberEqual(Integer pilotesNumber) {
+<b class="fc">&nbsp;        if (pilotesNumber == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return (root, query, criteriaBuilder) -&gt; criteriaBuilder.equal(root.get(&quot;pilotesNumber&quot;), pilotesNumber);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Specification&lt;OrderEntity&gt; byCustomerIdEqual(String customerId) {
+<b class="fc">&nbsp;        if (customerId == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return (root, query, criteriaBuilder) -&gt; {</b>
+<b class="fc">&nbsp;            Join&lt;CustomerEntity, OrderEntity&gt; joinCustomer = root.join(&quot;customer&quot;);</b>
+<b class="fc">&nbsp;            return criteriaBuilder.equal(joinCustomer.get(&quot;id&quot;), customerId);</b>
+&nbsp;        };
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Specification&lt;OrderEntity&gt; byCustomerFirstNameEqual(String customerFirstName) {
+<b class="fc">&nbsp;        if (customerFirstName == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return (root, query, criteriaBuilder) -&gt; {</b>
+<b class="fc">&nbsp;            Join&lt;CustomerEntity, OrderEntity&gt; joinCustomer = root.join(&quot;customer&quot;);</b>
+<b class="fc">&nbsp;            return criteriaBuilder.like(</b>
+<b class="fc">&nbsp;                    criteriaBuilder.lower(joinCustomer.get(&quot;firstName&quot;)),</b>
+<b class="fc">&nbsp;                    &quot;%&quot; + customerFirstName.toLowerCase() + &quot;%&quot;</b>
+&nbsp;            );
+&nbsp;        };
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Specification&lt;OrderEntity&gt; byCustomerLastNameEqual(String customerLastName) {
+<b class="fc">&nbsp;        if (customerLastName == null) {</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return (root, query, criteriaBuilder) -&gt; {</b>
+<b class="fc">&nbsp;            Join&lt;CustomerEntity, OrderEntity&gt; joinCustomer = root.join(&quot;customer&quot;);</b>
+<b class="fc">&nbsp;            return criteriaBuilder.like(</b>
+<b class="fc">&nbsp;                    criteriaBuilder.lower(joinCustomer.get(&quot;lastName&quot;)),</b>
+<b class="fc">&nbsp;                    &quot;%&quot; + customerLastName.toLowerCase() + &quot;%&quot;</b>
+&nbsp;            );
+&nbsp;        };
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    private static List&lt;Specification&lt;OrderEntity&gt;&gt; removeNullElements(List&lt;Specification&lt;OrderEntity&gt;&gt; specifications) {
+<b class="fc">&nbsp;        return specifications.stream().filter(Objects::nonNull).toList();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private static Specification&lt;OrderEntity&gt; listToOne(List&lt;Specification&lt;OrderEntity&gt;&gt; specifications) {
+<b class="fc">&nbsp;        Specification&lt;OrderEntity&gt; specification = null;</b>
+<b class="fc">&nbsp;        for (Specification&lt;OrderEntity&gt; spec : specifications) {</b>
+<b class="fc">&nbsp;            if (specification == null) {</b>
+<b class="fc">&nbsp;                specification = spec;</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                specification = specification.and(spec);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return specification;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-27 12:53</div>
+</div>
+</body>
+</html>
