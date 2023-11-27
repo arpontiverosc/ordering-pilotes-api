@@ -20,7 +20,8 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
+        return http
+                .csrf( csrf-> csrf.ignoringRequestMatchers(toH2Console()).disable())
                 .httpBasic()
                 .and().authorizeHttpRequests()
                 .requestMatchers(AUTH_WHITE_LIST).permitAll()
@@ -30,6 +31,7 @@ public class WebSecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/v1/orders").authenticated()
                 .requestMatchers(HttpMethod.GET, "/v1/orders") .hasRole("READ")
                 .and()
+                .headers().frameOptions().disable().and()
                 .build();
     }
 
