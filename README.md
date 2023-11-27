@@ -9,10 +9,25 @@ The following operations are implemented:
 - Search orders by customer data. Allow partial searches: e.g., all orders of customers whose name contains an “a” in their name.
 
 All types of data used are validated. 
-The search operation is secured and check if the user is allowed to use the search. All other operations are public and are not be secured.
+The search operation is secured and checks if the user is allowed to use the search. All other operations are public and are not be secured.
 The API follows REST standard.
 Use an in-memory database H2.
+E2E Test and unit tests. More than 80% Test coverage.
+Include Dockerfile and docker-compose.yaml.
+API documentation (Swagger and Open Api Yaml)
 
+## Application user
+
+    User: arpontiverosc,
+    Password: 123456,
+    user id: 1011
+
+## Available customers id to create orders
+
+    1012
+    1013
+    1014
+    1015
 
 
 ## Authors
@@ -40,7 +55,7 @@ To start up container.
 
 [Database](http://localhost:8080/h2-console/login.jsp)
 
-jdbc:h2:mem:orderingPilotes
+    jdbc:h2:mem:orderingPilotes
 
 ## Testing
 
@@ -58,6 +73,10 @@ jdbc:h2:mem:orderingPilotes
 [Open Api Yaml](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/postman/openapi.yaml)
 
 [Postman](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/postman)
+
+
+
+
 
 
 

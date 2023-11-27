@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "75226654-f6d9-41a2-80bd-40f978183f8e",
+		"_postman_id": "8ae285bc-9db6-4c86-be27-aef245105d46",
 		"name": "Ordering pilotes",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28815477"
 	},
 	"item": [
 		{
@@ -66,7 +67,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1012\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Calle de la Alegría, 67\",\r\n        \"postcode\": \"23700\" ,\r\n        \"city\": \"Málaga\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"example@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1012\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -106,7 +107,287 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1013\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Aved. de Madrid\",\r\n        \"postcode\": \"25844\" ,\r\n        \"city\": \"Córdoba\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"example1@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1013\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order user 1014",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1014\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order user 1015",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1015\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order email mandatory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order user mandatory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{      \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order pilotes mandatory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   }, \r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order address mandatory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",\r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order city and country mandatory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\"        \r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,7 +416,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"tests[\"response code is 201\"] = responseCode.code === 201;"
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
 								],
 								"type": "text/javascript"
 							}
@@ -170,12 +451,63 @@
 				},
 				{
 					"name": "New order client not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 404\"] = responseCode.code === 404;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New order wrong email format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 422\"] = responseCode.code === 422;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiveroscgmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,7 +592,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1012\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-32\",\r\n        \"postcode\": \"25112\" ,\r\n        \"city\": \"Málaga\",\r\n        \"country\": \"France\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -268,7 +600,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/orders/472bd97a-e744-4f40-9b14-159dc1881591",
+							"raw": "http://localhost:8080/v1/orders/82888d75-448a-437d-a2e7-f3d87fea4ab0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -277,7 +609,7 @@
 							"path": [
 								"v1",
 								"orders",
-								"472bd97a-e744-4f40-9b14-159dc1881591"
+								"82888d75-448a-437d-a2e7-f3d87fea4ab0"
 							]
 						}
 					},
@@ -301,7 +633,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"251111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-3\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 10,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -350,7 +682,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/orders/01f0db60-7d48-42a0-81f3-6fc9edbb8d0d",
+							"raw": "http://localhost:8080/v1/orders/472bd97a-e744-4f40-9b14-159dc1881591",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -359,7 +691,7 @@
 							"path": [
 								"v1",
 								"orders",
-								"01f0db60-7d48-42a0-81f3-6fc9edbb8d0d"
+								"472bd97a-e744-4f40-9b14-159dc1881591"
 							]
 						}
 					},
@@ -384,10 +716,25 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "arpontiverosc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/orders?customerFirstName=A&customerId=1011",
+							"raw": "http://localhost:8080/v1/orders",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -396,16 +743,6 @@
 							"path": [
 								"v1",
 								"orders"
-							],
-							"query": [
-								{
-									"key": "customerFirstName",
-									"value": "A"
-								},
-								{
-									"key": "customerId",
-									"value": "1011"
-								}
 							]
 						}
 					},
