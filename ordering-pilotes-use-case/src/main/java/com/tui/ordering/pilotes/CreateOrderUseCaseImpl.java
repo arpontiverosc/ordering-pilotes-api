@@ -51,7 +51,7 @@ public class CreateOrderUseCaseImpl implements CreateOrderUseCase {
                         .customerId(command.getUserIdentifier())
                         .build())
                 .pilotes(command.getPilotesNumber())
-                .orderTotal(pilotesService.getPrice()+command.getPilotesNumber())
+                .orderTotal(pilotesService.getPrice()*command.getPilotesNumber())
                 .email(command.getEmail())
                 .build();
     }
