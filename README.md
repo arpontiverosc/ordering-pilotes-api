@@ -36,6 +36,12 @@ Find docker-compose.yaml. Run:
 
 To start up container.
 
+## Testing
+
+[E2ETests](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-container/src/test/java/com/tui/ordering/pilotes)
+
+[UnitTests example](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-use-case/src/test/java/com/tui/ordering/pilotes)
+
 ## Documentation
 
 [Swagger](http://localhost:8080/swagger-ui/index.html)
@@ -43,4 +49,6 @@ To start up container.
 [Open Api Yaml](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/postman/openapi.yaml)
 
 [Postman](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/postman)
+
+
 
