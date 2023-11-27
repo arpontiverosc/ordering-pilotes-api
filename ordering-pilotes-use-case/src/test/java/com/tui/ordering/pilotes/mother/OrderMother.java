@@ -8,6 +8,8 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -55,4 +57,9 @@ public class OrderMother {
                     .build();
         }
 
+    public static List<Order> createList() {
+        List<Order> orders = new ArrayList<>();
+        orders.add(Order.Builder.builder().build());
+        return orders;
+    }
 }
