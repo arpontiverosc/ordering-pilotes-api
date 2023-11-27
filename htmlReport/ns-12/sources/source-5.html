@@ -100,10 +100,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;import org.springframework.security.web.SecurityFilterChain;
 &nbsp;import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 &nbsp;import org.springframework.http.HttpMethod;
-&nbsp;@Configuration
-<b class="fc">&nbsp;public class WebSecurityConfig {</b>
-&nbsp;
-<b class="fc">&nbsp;    private static final String[] AUTH_WHITE_LIST = {</b>
+&nbsp;import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
+<b class="fc">&nbsp;@Configuration</b>
+&nbsp;public class WebSecurityConfig {
+<b class="fc">&nbsp;</b>
+&nbsp;    private static final String[] AUTH_WHITE_LIST = {
 &nbsp;            &quot;/v3/api-docs/**&quot;,
 &nbsp;            &quot;/swagger-ui/**&quot;,
 &nbsp;            &quot;/v2/api-docs/**&quot;,
@@ -111,22 +112,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    };
 &nbsp;
 &nbsp;    @Bean
-&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+<b class="fc">&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {</b>
 <b class="fc">&nbsp;        return http.csrf().disable()</b>
 <b class="fc">&nbsp;                .httpBasic()</b>
 <b class="fc">&nbsp;                .and().authorizeHttpRequests()</b>
 <b class="fc">&nbsp;                .requestMatchers(AUTH_WHITE_LIST).permitAll()</b>
+<b class="fc">&nbsp;                .requestMatchers(toH2Console()).permitAll()</b>
 <b class="fc">&nbsp;                .requestMatchers(HttpMethod.POST, &quot;/v1/orders&quot;).permitAll()</b>
 <b class="fc">&nbsp;                .requestMatchers(HttpMethod.PUT, &quot;/v1/orders/{orderId}&quot;).permitAll()</b>
 <b class="fc">&nbsp;                .requestMatchers(HttpMethod.GET, &quot;/v1/orders&quot;).authenticated()</b>
 <b class="fc">&nbsp;                .requestMatchers(HttpMethod.GET, &quot;/v1/orders&quot;) .hasRole(&quot;READ&quot;)</b>
-<b class="fc">&nbsp;                .and()</b>
-<b class="fc">&nbsp;                .build();</b>
+&nbsp;                .and()
+&nbsp;                .build();
 &nbsp;    }
 &nbsp;
-&nbsp;    @Bean
+<b class="fc">&nbsp;    @Bean</b>
 &nbsp;   public PasswordEncoder passwordEncoder(){
-<b class="fc">&nbsp;        return PasswordEncoderFactories.createDelegatingPasswordEncoder();</b>
+&nbsp;        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
 &nbsp;    }
 &nbsp;}
 </code>
@@ -152,7 +154,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-27 12:53</div>
+    <div style="float:right;">generated on 2023-11-27 16:14</div>
 </div>
 </body>
 </html>

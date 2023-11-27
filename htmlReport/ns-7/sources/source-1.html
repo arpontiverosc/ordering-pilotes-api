@@ -103,31 +103,33 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.in.rest.v1.model.request;
 &nbsp;
+&nbsp;import jakarta.validation.Valid;
 &nbsp;import jakarta.validation.constraints.Email;
 &nbsp;import jakarta.validation.constraints.NotBlank;
 &nbsp;import jakarta.validation.constraints.NotNull;
 &nbsp;import lombok.*;
 &nbsp;import com.tui.ordering.pilotes.util.OrderErrorCode;
-&nbsp;
-<b class="fc">&nbsp;@AllArgsConstructor</b>
+<b class="fc">&nbsp;</b>
+&nbsp;@AllArgsConstructor
 &nbsp;@Getter
-&nbsp;@Setter
-<b class="nc">&nbsp;@ToString</b>
-<b class="fc">&nbsp;@Builder</b>
+<b class="nc">&nbsp;@Setter</b>
+<b class="fc">&nbsp;@ToString</b>
+&nbsp;@Builder
 &nbsp;public class CreateOrderRequest {
 &nbsp;
-&nbsp;    @NotBlank(message = OrderErrorCode.USER_IDENTIFIER_MANDATORY)
-<b class="fc">&nbsp;    private final String userIdentifier;</b>
+<b class="fc">&nbsp;    @NotBlank(message = OrderErrorCode.USER_IDENTIFIER_MANDATORY)</b>
+&nbsp;    private final String userIdentifier;
 &nbsp;
-&nbsp;    @NotNull(message = OrderErrorCode.DELIVERY_ADDRESS_MANDATORY)
-<b class="fc">&nbsp;    private final OrderAddress deliveryAddress;</b>
-&nbsp;
+<b class="fc">&nbsp;    @NotNull(message = OrderErrorCode.DELIVERY_ADDRESS_MANDATORY)</b>
+&nbsp;    @Valid
+&nbsp;    private final OrderAddress deliveryAddress;
+<b class="fc">&nbsp;</b>
 &nbsp;    @NotNull(message = OrderErrorCode.PILOTES_NUMBER_MANDATORY)
-<b class="fc">&nbsp;    private final Integer pilotesNumber;</b>
+&nbsp;    private final Integer pilotesNumber;
 &nbsp;
-&nbsp;    @NotBlank(message = OrderErrorCode.EMAIL_MANDATORY)
+<b class="fc">&nbsp;    @NotBlank(message = OrderErrorCode.EMAIL_MANDATORY)</b>
 &nbsp;    @Email(message = OrderErrorCode.EMAIL_FORMAT)
-<b class="fc">&nbsp;    private final String email;</b>
+&nbsp;    private final String email;
 &nbsp;
 &nbsp;}
 </code>
@@ -153,7 +155,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-27 12:53</div>
+    <div style="float:right;">generated on 2023-11-27 16:14</div>
 </div>
 </body>
 </html>

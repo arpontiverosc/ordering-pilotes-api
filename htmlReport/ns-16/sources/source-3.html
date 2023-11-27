@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
-  <title>Coverage Report > ClientErrorCode</title>
+  <title>Coverage Report > SpringDataOrderRepository</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -19,17 +19,17 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">com.tui.ordering.pilotes.util</a>
+    <a href="../index.html">com.tui.ordering.pilotes.out.jpa</a>
 </div>
 
-<h1>Coverage Summary for Class: ClientErrorCode (com.tui.ordering.pilotes.util)</h1>
+<h1>Coverage Summary for Class: SpringDataOrderRepository (com.tui.ordering.pilotes.out.jpa)</h1>
 
 <table class="coverageStats">
 <tr>
   <th class="name">Class</th>
 </tr>
 <tr>
-  <td class="name">ClientErrorCode</td>
+  <td class="name">SpringDataOrderRepository</td>
 </tr>
 
 </table>
@@ -39,12 +39,14 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.util;
+<code class="sourceCode" id="sourceCode">&nbsp;package com.tui.ordering.pilotes.out.jpa;
 &nbsp;
-&nbsp;public class ClientErrorCode {
-&nbsp;    public static final String NOT_FOUND = &quot;client.notFound&quot;;
-&nbsp;    private ClientErrorCode() {
-&nbsp;    }
+&nbsp;import com.tui.ordering.pilotes.out.jpa.model.OrderEntity;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+&nbsp;
+&nbsp;
+&nbsp;public interface SpringDataOrderRepository extends JpaRepository&lt;OrderEntity, String&gt;, JpaSpecificationExecutor&lt;OrderEntity&gt; {
 &nbsp;}
 </code>
 </pre>
@@ -69,7 +71,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-27 12:53</div>
+    <div style="float:right;">generated on 2023-11-27 16:14</div>
 </div>
 </body>
 </html>

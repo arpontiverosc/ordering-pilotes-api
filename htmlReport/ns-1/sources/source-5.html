@@ -142,7 +142,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                .customer(Customer.Builder.builder()</b>
 <b class="fc">&nbsp;                        .customerId(command.getUserIdentifier()).build())</b>
 <b class="fc">&nbsp;                .pilotes(command.getPilotesNumber())</b>
-<b class="fc">&nbsp;                .orderTotal(pilotesService.getPrice() + command.getPilotesNumber())</b>
+<b class="fc">&nbsp;                .orderTotal(pilotesService.getPrice()*command.getPilotesNumber())</b>
 <b class="fc">&nbsp;                .email(command.getEmail())</b>
 <b class="fc">&nbsp;                .build();</b>
 &nbsp;    }
@@ -170,7 +170,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-27 12:53</div>
+    <div style="float:right;">generated on 2023-11-27 16:14</div>
 </div>
 </body>
 </html>

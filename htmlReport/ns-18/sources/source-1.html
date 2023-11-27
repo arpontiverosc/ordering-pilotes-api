@@ -64,7 +64,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 &nbsp;    @ResponseStatus(HttpStatus.OK)
-&nbsp;    List&lt;DetailOrderResponse&gt; searchOrdersV1(SearchOrderRequest searchOrderRequest);
+&nbsp;    List&lt;DetailOrderResponse&gt; searchOrdersV1(@Valid SearchOrderRequest searchOrderRequest);
 &nbsp;
 &nbsp;
 &nbsp;    @PutMapping(path = &quot;/{orderId}&quot;, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -98,7 +98,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-11-27 12:53</div>
+    <div style="float:right;">generated on 2023-11-27 16:14</div>
 </div>
 </body>
 </html>
