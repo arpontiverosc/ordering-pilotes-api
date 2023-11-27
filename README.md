@@ -36,6 +36,12 @@ Find docker-compose.yaml. Run:
 
 To start up container.
 
+## Database
+
+[Database](http://localhost:8080/h2-console/login.jsp)
+
+jdbc:h2:mem:orderingPilotes
+
 ## Testing
 
 [E2ETests](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-container/src/test/java/com/tui/ordering/pilotes)

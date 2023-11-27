@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.http.HttpMethod;
+import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 @Configuration
 public class WebSecurityConfig {
 
@@ -23,6 +24,7 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and().authorizeHttpRequests()
                 .requestMatchers(AUTH_WHITE_LIST).permitAll()
+                .requestMatchers(toH2Console()).permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/orders").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/v1/orders/{orderId}").permitAll()
                 .requestMatchers(HttpMethod.GET, "/v1/orders").authenticated()
