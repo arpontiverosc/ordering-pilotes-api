@@ -42,6 +42,9 @@ To start up container.
 
 [UnitTests example](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-use-case/src/test/java/com/tui/ordering/pilotes)
 
+[Coverage report](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/htmlReport/index.html)
+
+
 ## Documentation
 
 [Swagger](http://localhost:8080/swagger-ui/index.html)
