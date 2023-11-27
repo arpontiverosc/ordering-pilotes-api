@@ -11,7 +11,7 @@ public class UpdateOrderRequestMother {
     public static UpdateOrderRequest create(){
 
         return UpdateOrderRequest.builder()
-                .deliveryAddress(OrderAddressMother.create())
+                .deliveryAddress(OrderAddressMother.createChanged())
                 .email("exampleChanged@gmail.com")
                 .pilotesNumber(15)
                 .userIdentifier("1012")

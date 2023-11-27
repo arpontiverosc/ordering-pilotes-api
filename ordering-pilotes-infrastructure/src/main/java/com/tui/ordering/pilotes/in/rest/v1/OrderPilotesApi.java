@@ -23,7 +23,7 @@ public interface OrderPilotesApi {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    List<DetailOrderResponse> searchOrdersV1(SearchOrderRequest searchOrderRequest);
+    List<DetailOrderResponse> searchOrdersV1(@Valid SearchOrderRequest searchOrderRequest);
 
 
     @PutMapping(path = "/{orderId}", consumes = MediaType.APPLICATION_JSON_VALUE)

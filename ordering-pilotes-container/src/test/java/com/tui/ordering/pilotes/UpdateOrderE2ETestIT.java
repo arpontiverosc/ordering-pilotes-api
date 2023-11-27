@@ -5,11 +5,13 @@ import com.tui.ordering.pilotes.in.rest.v1.model.request.CreateOrderRequest;
 import com.tui.ordering.pilotes.in.rest.v1.model.request.UpdateOrderRequest;
 import com.tui.ordering.pilotes.in.rest.v1.model.response.CreateOrderResponse;
 import com.tui.ordering.pilotes.mother.CreateOrderRequestMother;
+import com.tui.ordering.pilotes.mother.CredentialsMother;
 import com.tui.ordering.pilotes.mother.UpdateOrderRequestMother;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -23,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UpdateOrderE2ETestIT {
 
     private static final String ORDER_ID = "472bd97a-e744-4f40-9b14-159dc1881591";
+    private static final double PRICE = 1.33;
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,6 +35,8 @@ public class UpdateOrderE2ETestIT {
 
     @Test
     void updateOrder_SuccessfullyTest() throws Exception {
+
+        //create order
 
         CreateOrderRequest createOrderRequest = CreateOrderRequestMother.create();
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/v1/orders")
@@ -43,12 +48,28 @@ public class UpdateOrderE2ETestIT {
         String contentAsString = result.getResponse().getContentAsString();
         CreateOrderResponse createOrderResponse = objectMapper.readValue(contentAsString, CreateOrderResponse.class);
 
+        //update order
+
         UpdateOrderRequest updateOrderRequest = UpdateOrderRequestMother.create();
 
         mockMvc.perform(MockMvcRequestBuilders.put("/v1/orders/"+createOrderResponse.getOrderId())
                         .content(objectMapper.writeValueAsString(updateOrderRequest))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
+
+
+        // check updating
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/orders?orderId="+createOrderResponse.getOrderId())
+                        .header(HttpHeaders.AUTHORIZATION, "Basic " + CredentialsMother.getBase64Credentials())
+                        .contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(jsonPath("$[0]").isNotEmpty())
+                        .andExpect(jsonPath("$[0].deliveryAddress").isNotEmpty())
+                        .andExpect(jsonPath("$[0].orderId").value(createOrderResponse.getOrderId()))
+                        .andExpect(jsonPath("$[0].orderTotal").value(PRICE*updateOrderRequest.getPilotesNumber()))
+                        .andExpect(jsonPath("$[0].customer.id").value(updateOrderRequest.getUserIdentifier()))
+                        .andExpect(jsonPath("$[0].email").value(updateOrderRequest.getEmail()));
+
 
     }
 

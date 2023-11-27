@@ -15,4 +15,13 @@ public class OrderAddressMother {
                 .country("Spain")
                 .build();
     }
+
+    public static OrderAddress createChanged(){
+        return OrderAddress.builder()
+                .city("Madrid changed")
+                .street("Gran vía, 32 changed")
+                .postcode("11111")
+                .country("Spain changed")
+                .build();
+    }
 }

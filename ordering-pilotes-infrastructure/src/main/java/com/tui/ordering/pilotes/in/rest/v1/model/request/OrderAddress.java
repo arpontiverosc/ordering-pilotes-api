@@ -16,7 +16,7 @@ public class OrderAddress {
 
     @NotBlank(message = OrderErrorCode.ADDRESS_STREET_MANDATORY)
     @Size(min = 3, message = OrderErrorCode.STREET_MIN_LENGTH)
-    @Size(max = 25, message = OrderErrorCode.STREET_MAX_LENGTH)
+    @Size(max = 50, message = OrderErrorCode.STREET_MAX_LENGTH)
     private final String street;
 
 

@@ -1,6 +1,6 @@
 package com.tui.ordering.pilotes;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tui.ordering.pilotes.in.rest.v1.model.request.CreateOrderRequest;
 import com.tui.ordering.pilotes.mother.CreateOrderRequestMother;
@@ -42,6 +42,39 @@ public class CreateOrderE2ETestIT {
                 .andExpect(jsonPath("$.email").isNotEmpty())
                 .andExpect(jsonPath("$.createdAt").isNotEmpty());
 
+    }
+
+    @Test
+    void createOrder_UserMandatoryTest() throws Exception {
+
+        CreateOrderRequest createOrderRequestNoUser = CreateOrderRequestMother.createNoUser();
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/orders")
+                        .content(objectMapper.writeValueAsString(createOrderRequestNoUser))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void createOrder_PilotesMandatoryTest() throws Exception {
+
+        CreateOrderRequest createOrderRequestNoUser = CreateOrderRequestMother.createNoPilotes();
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/orders")
+                        .content(objectMapper.writeValueAsString(createOrderRequestNoUser))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void createOrder_EmailMandatoryTest() throws Exception {
+
+        CreateOrderRequest createOrderRequestNoUser = CreateOrderRequestMother.createNoEmail();
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/orders")
+                        .content(objectMapper.writeValueAsString(createOrderRequestNoUser))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnprocessableEntity());
     }
 
     @Test

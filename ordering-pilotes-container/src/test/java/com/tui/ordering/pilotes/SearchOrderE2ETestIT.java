@@ -82,7 +82,7 @@ public class SearchOrderE2ETestIT {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].pilotesNumber").isNotEmpty())
-                .andExpect(jsonPath("$[0].pilotesNumber").value(pilotesNumber));;
+                .andExpect(jsonPath("$[0].pilotesNumber").value(pilotesNumber));
 
     }
 

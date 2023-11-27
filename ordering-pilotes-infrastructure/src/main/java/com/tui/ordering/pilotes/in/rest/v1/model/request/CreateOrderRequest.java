@@ -1,5 +1,6 @@
 package com.tui.ordering.pilotes.in.rest.v1.model.request;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -17,6 +18,7 @@ public class CreateOrderRequest {
     private final String userIdentifier;
 
     @NotNull(message = OrderErrorCode.DELIVERY_ADDRESS_MANDATORY)
+    @Valid
     private final OrderAddress deliveryAddress;
 
     @NotNull(message = OrderErrorCode.PILOTES_NUMBER_MANDATORY)
