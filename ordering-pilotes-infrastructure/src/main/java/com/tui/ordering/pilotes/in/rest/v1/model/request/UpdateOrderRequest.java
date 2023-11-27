@@ -4,15 +4,13 @@ import com.tui.ordering.pilotes.util.OrderErrorCode;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+@Builder
 public class UpdateOrderRequest {
 
     @NotBlank(message = OrderErrorCode.USER_IDENTIFIER_MANDATORY)

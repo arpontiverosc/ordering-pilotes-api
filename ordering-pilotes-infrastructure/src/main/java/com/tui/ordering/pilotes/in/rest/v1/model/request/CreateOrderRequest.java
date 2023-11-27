@@ -10,6 +10,7 @@ import com.tui.ordering.pilotes.util.OrderErrorCode;
 @Getter
 @Setter
 @ToString
+@Builder
 public class CreateOrderRequest {
 
     @NotBlank(message = OrderErrorCode.USER_IDENTIFIER_MANDATORY)

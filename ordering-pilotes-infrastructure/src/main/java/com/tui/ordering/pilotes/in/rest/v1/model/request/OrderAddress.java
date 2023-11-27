@@ -4,16 +4,14 @@ import com.tui.ordering.pilotes.util.OrderErrorCode;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+@Builder
 public class OrderAddress {
 
     @NotBlank(message = OrderErrorCode.ADDRESS_STREET_MANDATORY)

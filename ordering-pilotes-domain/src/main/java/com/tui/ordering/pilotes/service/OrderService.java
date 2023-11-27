@@ -5,6 +5,8 @@ import com.tui.ordering.pilotes.exception.OrderNotFoundException;
 import com.tui.ordering.pilotes.model.Order;
 import com.tui.ordering.pilotes.port.out.FindOrderRepository;
 
+import java.time.OffsetDateTime;
+
 public class OrderService {
 
     private final FindOrderRepository findOrderRepository;
@@ -16,7 +18,7 @@ public class OrderService {
 
     public void isBefore(Integer minutes, String orderId) {
         Order order = findById(orderId);
-        if (order.getCreatedAt().isAfter(order.getCreatedAt().plusMinutes(minutes))) {
+        if (OffsetDateTime.now().isAfter(order.getCreatedAt().plusMinutes(minutes))) {
             throw new OrderBeingCookingException();
         }
     }
