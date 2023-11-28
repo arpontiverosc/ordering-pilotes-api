@@ -2,6 +2,7 @@ package com.tui.ordering.pilotes.model;
 
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 public class Order {
     private final String orderId;
@@ -49,6 +50,14 @@ public class Order {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isAfter(Integer minutes) {
+        return OffsetDateTime.now().isAfter(this.getCreatedAt().plusMinutes(minutes));
+    }
+
+    public boolean isRightPilotesNumber(List<Integer> possibleValues) {
+        return possibleValues.contains(this.pilotesNumber);
     }
 
     public static final class Builder {

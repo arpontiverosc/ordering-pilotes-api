@@ -6,17 +6,11 @@ import com.tui.ordering.pilotes.port.out.FindClientRepository;
 import com.tui.ordering.pilotes.port.out.FindOrderRepository;
 import com.tui.ordering.pilotes.service.ClientService;
 import com.tui.ordering.pilotes.service.OrderService;
-import com.tui.ordering.pilotes.service.PilotesService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanConfiguration {
-
-    @Bean
-    public PilotesService pilotesService(ConfigurationParamsRepository configurationParamsRepository) {
-        return new PilotesService(configurationParamsRepository);
-    }
 
     @Bean
     public ClientService clientService(FindClientRepository findClientRepository) {

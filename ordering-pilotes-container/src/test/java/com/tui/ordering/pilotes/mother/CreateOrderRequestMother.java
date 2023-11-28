@@ -42,7 +42,7 @@ public class CreateOrderRequestMother {
                 .deliveryAddress(OrderAddressMother.create())
                 .email("example@gmail.com")
                 .pilotesNumber(3)
-                .userIdentifier("1010")
+                .userIdentifier("1011")
                 .build();
     }
 
@@ -51,7 +51,7 @@ public class CreateOrderRequestMother {
         return CreateOrderRequest.builder()
                 .deliveryAddress(OrderAddressMother.create())
                 .email("example@gmail.com")
-                .userIdentifier("1010")
+                .userIdentifier("1011")
                 .build();
     }
 

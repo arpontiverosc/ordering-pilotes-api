@@ -552,7 +552,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"userIdentifier\": \"32123123184\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 3,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -580,7 +580,52 @@
 			"name": "Update order",
 			"item": [
 				{
-					"name": "Update order",
+					"name": "1.New order user 1011",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"response code is 201\"] = responseCode.code === 201;\r",
+									"pm.test(\"new Order\", function () {   \r",
+									"    var json = pm.response.json();\r",
+									"    pm.environment.set(\"orderId\", json.orderId);   \r",
+									"});\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userIdentifier\": \"1011\",    \r\n   \"deliveryAddress\": {\r\n        \"street\": \"Avd. Constitución 67 15-5-2\",\r\n        \"postcode\": \"25111\" ,\r\n        \"city\": \"Madrid\",\r\n        \"country\": \"Spain\"\r\n   },    \r\n   \"pilotesNumber\": 5,\r\n   \"email\":\"arpontiverosc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.Update order",
 					"event": [
 						{
 							"listen": "test",

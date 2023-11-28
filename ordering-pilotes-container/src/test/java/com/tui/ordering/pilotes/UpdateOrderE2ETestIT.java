@@ -118,9 +118,23 @@ public class UpdateOrderE2ETestIT {
     @Test
     void createOrder_PiloteInvalidNumberExceptionTest() throws Exception {
 
+        //create order
+
+        CreateOrderRequest createOrderRequest = CreateOrderRequestMother.create();
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/v1/orders")
+                        .content(objectMapper.writeValueAsString(createOrderRequest))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        String contentAsString = result.getResponse().getContentAsString();
+        CreateOrderResponse createOrderResponse = objectMapper.readValue(contentAsString, CreateOrderResponse.class);
+
+        //update
+
         UpdateOrderRequest updateOrderRequest = UpdateOrderRequestMother.create_InvalidPiloteNumber();
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/v1/orders/"+ORDER_ID)
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/orders/"+createOrderResponse.getOrderId())
                         .content(objectMapper.writeValueAsString(updateOrderRequest))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnprocessableEntity())

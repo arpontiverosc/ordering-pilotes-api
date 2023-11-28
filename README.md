@@ -32,12 +32,12 @@ API documentation (Swagger and Open Api Yaml)
 
 ## Authors
 
-- [@arpontiveros](https://github.com/arpontiverosc)
+- [@arpontiveros]
 
 
 ## Deployment
 
-To deploy this project. From https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-container
+To deploy this project. From "/tui-ordering-pilotes-api/tree/main/ordering-pilotes-container"
 
 Find Dockerfile. Run:
 
@@ -59,20 +59,20 @@ To start up container.
 
 ## Testing
 
-[E2ETests](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-container/src/test/java/com/tui/ordering/pilotes)
+[E2ETests] tui-ordering-pilotes-api/tree/main/ordering-pilotes-container/src/test/java/com/tui/ordering/pilotes
 
-[UnitTests example](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/ordering-pilotes-use-case/src/test/java/com/tui/ordering/pilotes)
+[UnitTests] /tui-ordering-pilotes-api/tree/main/ordering-pilotes-use-case/src/test/java/com/tui/ordering/pilotes
 
-[Coverage report](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/htmlReport/index.html)
+[Coverage report] tui-ordering-pilotes-api/blob/main/htmlReport/index.html
 
 
 ## Documentation
 
 [Swagger](http://localhost:8080/swagger-ui/index.html)
 
-[Open Api Yaml](https://github.com/arpontiverosc/tui-ordering-pilotes-api/blob/main/postman/openapi.yaml)
+[Open Api Yaml] /tui-ordering-pilotes-api/blob/main/postman/openapi.yaml
 
-[Postman](https://github.com/arpontiverosc/tui-ordering-pilotes-api/tree/main/postman)
+[Postman] /tui-ordering-pilotes-api/tree/main/postman
 
 
 

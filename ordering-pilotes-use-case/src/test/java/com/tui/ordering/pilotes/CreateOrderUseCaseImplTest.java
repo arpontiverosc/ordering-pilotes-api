@@ -5,15 +5,17 @@ import com.tui.ordering.pilotes.mother.CreateOrderCommandMother;
 import com.tui.ordering.pilotes.mother.OrderMother;
 import com.tui.ordering.pilotes.port.in.CreateOrderUseCase;
 import com.tui.ordering.pilotes.port.in.model.CreateOrderCommand;
+import com.tui.ordering.pilotes.port.out.ConfigurationParamsRepository;
 import com.tui.ordering.pilotes.port.out.SaveOrderRepository;
 import com.tui.ordering.pilotes.service.ClientService;
-import com.tui.ordering.pilotes.service.PilotesService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.ArgumentMatchers;
 
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -27,17 +29,19 @@ public class CreateOrderUseCaseImplTest {
     private CreateOrderUseCase createOrderUseCase;
 
     private SaveOrderRepository saveOrderRepository;
-    private PilotesService pilotesService;
+
+    private ConfigurationParamsRepository configurationParamsRepository;
+
     private ClientService clientService;
 
     @BeforeAll
     public void setUp() {
 
         saveOrderRepository = mock(SaveOrderRepository.class);
-        pilotesService = mock(PilotesService.class);
         clientService = mock(ClientService.class);
+        configurationParamsRepository = mock(ConfigurationParamsRepository.class);
 
-        createOrderUseCase = new CreateOrderUseCaseImpl(saveOrderRepository, pilotesService, clientService);
+        createOrderUseCase = new CreateOrderUseCaseImpl(saveOrderRepository, clientService, configurationParamsRepository);
 
     }
 
@@ -46,15 +50,15 @@ public class CreateOrderUseCaseImplTest {
     public void executeCommandTest() {
 
         CreateOrderCommand createOrderCommand = CreateOrderCommandMother.create();
-        Order order = OrderMother.createOrderFrom(createOrderCommand, PRICE);
         Order orderCreated = OrderMother.createdAtOrderFrom(createOrderCommand, PRICE, OffsetDateTime.now());
 
-        when(pilotesService.getPrice()).thenReturn(PRICE);
+        when(configurationParamsRepository.getPrice()).thenReturn(Optional.of(PRICE));
+        when(configurationParamsRepository.findValues()).thenReturn(Arrays.asList(5,10,15));
         when(saveOrderRepository.save(ArgumentMatchers.any(Order.class))).thenReturn(orderCreated);
 
         Order orderSaved = createOrderUseCase.execute(createOrderCommand);
 
-        verify(pilotesService).validNumber(createOrderCommand.getPilotesNumber());
+
         verify(clientService).retrieveClient(createOrderCommand.getUserIdentifier());
 
         assertNotNull(orderSaved.getOrderId());
