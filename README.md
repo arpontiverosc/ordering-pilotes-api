@@ -1,11 +1,11 @@
 
-# Java Engineer technical test "Ordering pilotes"
+# Java Engineer technical test
 
-Spring based application developed following a hexagonal architecture, Java 17 and Spring boot 3.0.0. It allows us to manage the orders of the "pilotes" through some API. Pilotes of the great Miquel Montoro are a Majorcan recipe that consisting of a meatball stew.
+Spring based application developed following a hexagonal architecture, Java 17 and Spring boot 3.0.0. It allows us to manage the orders of the "pilotes" through some API. 
 
 The following operations are implemented:
-- Create a pilotes order, choosing between 5, 10 or 15 pilotes.
-- Update a pilotes order. During the 5 minutes following the creation of the order it will be allowed to update the order data; after that time it will not be possible to modify any data of the order because Miquel will be occupied cooking thepilotes.
+- Create a new order, choosing between 5, 10 or 15 pilotes.
+- Update an order. During the 5 minutes following the creation of the order it will be allowed to update the order data; after that time it will not be possible to modify any data of the order. 
 - Search orders by customer data. Allow partial searches: e.g., all orders of customers whose name contains an “a” in their name.
 
 All types of data used are validated. 
