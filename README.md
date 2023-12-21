@@ -1,7 +1,7 @@
 
 # Java Engineer technical test
 
-Spring based application developed following a hexagonal architecture, Java 17 and Spring boot 3.0.0. It allows us to manage the orders of the "pilotes" through some API. 
+Spring based application developed following a hexagonal architecture, Java 17 and Spring boot 3.0.0. It allows us to manage the orders through a API. 
 
 The following operations are implemented:
 - Create a new order, choosing between 5, 10 or 15 pilotes.
